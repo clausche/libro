@@ -66,6 +66,7 @@
                     <div class="content-box">
                         <b>Stats</b>
                         <ul class="list-group trick-stats">
+                        
                             <!-- <a href="#" class="list-group-item js-like-trick" data-liked="{{ $trick->likedByUser(Auth::user()) ? '1' : '0'}}">
 
                                 <span class="fa fa-heart @if($trick->likedByUser(Auth::user())) text-primary @endif"></span>

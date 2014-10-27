@@ -44,13 +44,16 @@
 					@endif
 					{{ Form::open(array('class'=>'form-vertical','id'=>'save-trick-form','role'=>'form'))}}
 						<div class="form-group">
+							<label for="name">Categoría</label>
 					    	<p>{{ Form::select('categories[]', $categoryList, null, array('multiple','id'=>'categories','placeholder'=>trans('tricks.categorize_trick_placeholder'),'class' => 'form-control')); }}</p>
 					    </div>
 					    <div class="form-group">
+					    	<label for="name">Consulados</label>
 					    	<p>{{ Form::select('tags[]', $tagList, null, array('multiple','id'=>'tags','placeholder'=>trans('tricks.tag_trick_placeholder'),'class' => 'form-control')); }}</p>
 					    </div>
 						
 					    <div class="form-group">
+					    	<label for="name">Localización de la embajada</label>
 					    	<p>{{ Form::select('ciudades[]', $ciudadList, null, array('multiple', 'id'=>'ciudades','placeholder'=>trans('tricks.ciudad_trick_placeholder'),'class' => 'form-control')); }}</p>
 					    </div>
 					    <div class="form-group">

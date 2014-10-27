@@ -43,6 +43,7 @@
 					    </div>
 					@endif
 					{{ Form::open(array('class'=>'form-vertical','id'=>'save-trick-form','role'=>'form'))}}
+					
 						<div class="form-group">
 					    	<label for="name">Nombre Consulado</label>
 					    	{{Form::text('name', null, array('class'=>'form-control','placeholder'=>'Ingresa aquí el nombre del país' ));}}
