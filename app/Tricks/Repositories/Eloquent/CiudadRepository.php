@@ -116,7 +116,7 @@ class CiudadRepository extends AbstractRepository implements CiudadRepositoryInt
      */
     public function findBySlug($slug)
     {
-        return $this->model->whereSlug($slug)->first();
+        return $this->model->whereSlug($slug)->get();
     }
 
     /**

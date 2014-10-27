@@ -67,7 +67,7 @@ Route::group([ 'namespace' => 'Controllers' ], function () {
     Route::post('countries/{trick_slug}/like', [ 'as' => 'countries.like', 'uses' => 'CountriesController@postLike' ]); 
     #######################################################-->
 
-    # Browse routes
+    # Browse routes ############################
     Route::get('categories', [ 'as' => 'browse.categories', 'uses' => 'BrowseController@getCategoryIndex']);
     Route::get('categories/{category_slug}', [
         'as'   => 'tricks.browse.category',
@@ -80,6 +80,9 @@ Route::group([ 'namespace' => 'Controllers' ], function () {
     //Route::get('ciudades/{ciudad_slug}', [ 'as' => 'tricks.browse.ciudad', 'uses' => 'BrowseController@getBrowseCiudad' ]);
     //Route::get('ciudades/{ciudad_slug}', [ 'as' => 'tricks.browse.ciudad', 'uses' => 'CiudadesController@getShow' ]);
     Route::get('ciudades/{ciudad_slug}', [ 'as' => 'tricks.browse.ciudad', 'uses' => 'BrowseController@getBrowseCiudad' ]);
+
+
+    ##########################################
 
     # Search routes
     Route::get('search', 'SearchController@getIndex');
