@@ -146,7 +146,7 @@ class BrowseController extends BaseController
     public function getBrowseTag($tag)
     {
         list($tag, $tricks) = $this->tricks->findByTag($tag);
-        $ciudad = $this->ciudades->findAll();
+        $ciudad = $this->ciudades->findBySlug($tag);
 
         $type      = \Lang::get('browse.tag', array('tag' => $tag->name));
         $pageTitle = \Lang::get('browse.browsing_tag', array('tag' => $tag->name));

@@ -54,7 +54,7 @@
                             </div>
                 </div>
                 <div class="content-box">
-                @foreach ($ciudad as $ciudad)
+                @foreach ($trick->ciudades as $ciudad)
                     {{-- expr --}}
                 @endforeach
                             <div>
