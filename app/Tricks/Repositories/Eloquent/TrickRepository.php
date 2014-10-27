@@ -211,19 +211,19 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
      * @param  integer $perPage
      * @return \Illuminate\Pagination\Paginator|\Tricks\Trick[]
      */
-    public function searchByTermPaginated($term, $perPage = 6)
+    public function searchByTermPaginated($term, $perPage = 3)
     {
         $tricks =  $this->model
                         ->orWhere('title', 'LIKE', '%'.$term.'%')
                         ->orWhere('description', 'LIKE', '%'.$term.'%')
                         ->orWhereHas('tags', function ($query) use ($term) {
-                            $query->where('title', 'LIKE', '%' . $term . '%')
-                                  ->orWhere('slug', 'LIKE', '%' . $term . '%');
-                        })
-                        ->orWhereHas('categories', function ($query) use ($term) {
                             $query->where('name', 'LIKE', '%' . $term . '%')
                                   ->orWhere('slug', 'LIKE', '%' . $term . '%');
                         })
+                        /*->orWhereHas('categories', function ($query) use ($term) {
+                            $query->where('name', 'LIKE', '%' . $term . '%')
+                                  ->orWhere('slug', 'LIKE', '%' . $term . '%');
+                        })*/
                         ->orderBy('created_at', 'desc')
                         ->orderBy('title', 'asc')
                         ->paginate($perPage);

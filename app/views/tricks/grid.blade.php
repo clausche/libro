@@ -2,9 +2,7 @@
 @foreach($tricks as $trick)
 			
 		@endforeach
-@foreach ($trick->allCategories as $element)
-			
-		@endforeach
+
 		
 	@if($tricks->count())
 		@foreach($tricks as $trick)

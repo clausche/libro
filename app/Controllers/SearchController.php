@@ -38,7 +38,7 @@ class SearchController extends BaseController
         $tricks = null;
 
         if (! empty($term)) {
-            $tricks = $this->tricks->searchByTermPaginated($term, 12);
+            $tricks = $this->tricks->searchByTermPaginated($term, 3);
         }
 
         $this->view('search.result', compact('tricks', 'term'));
