@@ -22,4 +22,8 @@ class Pais extends Model
 	{
 		return $this->hasMany('Tricks\Ciudad');
 	}
+    public function tricks()
+    {
+        return $this->belongsTo('Tricks\Trick');
+    }
 }
