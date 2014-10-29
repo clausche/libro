@@ -58,7 +58,7 @@
                 <div class="content-box">
                             <div>
                                 @foreach ($paises as $pais)
-                                    Modelo -> id = {{ $pais->continent }}
+                                    {{ $pais->headofstate }}
                                 @endforeach
                             </div>
                 </div>
@@ -68,18 +68,22 @@
                     @foreach ($trick->ciudades as $ciudad)
                     
                      @endforeach
-                        <b>Datos del País</b>
+                        <b>Estadisticas</b>
                         <ul class="list-group trick-stats">
-                            
                             <li class="list-group-item">
-                                <span class="fa fa-eye"></span> {{ $trick->view_cache }} views
+                                <span class="fa fa-eye"></span> Continente : {{ $pais->continent }} 
+                            </li>
+                            <li class="list-group-item">
+                                <span class="fa fa-eye"></span> {{ $trick->view_cache }} {{Str::plural('visita', count($trick->view_cache ));}}
                             </li>
                             <li class="list-group-item">
                                 <span class="fa fa-eye"></span> Población : {{ number_format($ciudad->population) }}
                             </li>
                             <li class="list-group-item" >
                                 <span class="fa fa-eye"></span> Distrito : {{ $ciudad->district }}
-                                
+                            </li>
+                            <li class="list-group-item" >
+                                <span class="fa fa-eye"></span> Presidente actual : {{ $pais->headofstate }}
                             </li>
                         </ul>
                         @if(count($trick->allCategories))
