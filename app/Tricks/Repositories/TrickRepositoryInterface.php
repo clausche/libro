@@ -34,6 +34,7 @@ interface TrickRepositoryInterface
      * @return \Tricks\Trick
      */
     public function findBySlug($slug);
+    public function findByTitle($slug);
 
     /**
      * Find all the tricks paginated.

@@ -43,7 +43,7 @@
                         </div>
                     </div>
                     <p>{{{ $trick->description }}}</p>
-                    <!-- <pre><code class="php">{{{ $trick->code }}}</code></pre> -->
+                    
                 </div>
                 <div class="content-box">
                             <div>
@@ -53,6 +53,13 @@
                 <div class="content-box">
                             <div>
                                 Submitted by <b><a href="{{ route('user.profile', $trick->user->username) }}">{{ $trick->user->username }}</a></b> - {{ $trick->timeago }}
+                            </div>
+                </div>
+                <div class="content-box">
+                            <div>
+                                @foreach ($paises as $pais)
+                                    Modelo -> id = {{ $pais->continent }}
+                                @endforeach
                             </div>
                 </div>
             </div>

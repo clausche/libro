@@ -5,6 +5,7 @@ namespace Tricks\Repositories\Eloquent;
 use Disqus;
 use Tricks\Tag;
 use Tricks\Ciudad;
+use Tricks\Pais;
 use Tricks\User;
 use Tricks\Trick;
 use Tricks\Category;
@@ -39,6 +40,7 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
      * @var \Tricks\Ciudad
      */
     protected $ciudad;
+    protected $pais;
 
     /**
      * Create a new DbTrickRepository instance.
@@ -49,12 +51,13 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
      * @param  \Tricks\Ciudad  $ciudad
      * @return void
      */
-    public function __construct(Trick $trick, Category $category, Tag $tag, Ciudad $ciudad)
+    public function __construct(Trick $trick, Category $category, Tag $tag, Ciudad $ciudad, Pais $pais )
     {
         $this->model    = $trick;
         $this->category = $category;
         $this->tag      = $tag;
         $this->ciudad   = $ciudad;
+        $this->pais   = $pais;
     } 
 
     /**d
@@ -94,6 +97,17 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
     public function findBySlug($slug)
     {
         return $this->model->whereSlug($slug)->first();
+    }
+
+    /**
+     * Find a trick by the given slug.
+     *
+     * @param  string $slug
+     * @return \Tricks\Trick
+     */
+    public function findByTitle($slug)
+    {
+        return $this->pais->whereName($slug)->get();
     }
 
     public function findAll()
