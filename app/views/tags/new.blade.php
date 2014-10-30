@@ -21,7 +21,7 @@
 
 @section('scripts')
 	<script type="text/javascript" src="{{url('js/selectize/js/standalone/selectize.min.js')}}"></script>
-	<script src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js"></script>
+	<script src="{{ asset('js/ace.js') }} "></script>
 	<script type="text/javascript" src="{{ asset('js/trick-new-edit.min.js') }}"></script>
 @stop
 

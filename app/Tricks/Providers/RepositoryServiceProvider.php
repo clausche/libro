@@ -47,5 +47,9 @@ class RepositoryServiceProvider extends ServiceProvider
             'Tricks\Repositories\CategoryRepositoryInterface',
             'Tricks\Repositories\Eloquent\CategoryRepository'
         );
+        $this->app->bind(
+            'Tricks\Repositories\PaisRepositoryInterface',
+            'Tricks\Repositories\Eloquent\PaisRepository'
+        );
     }
 }

@@ -7,6 +7,7 @@ use Tricks\Repositories\CountryRepositoryInterface;
 use Tricks\Repositories\CiudadRepositoryInterface;
 use Tricks\Repositories\TrickRepositoryInterface;
 use Tricks\Repositories\CategoryRepositoryInterface;
+use Tricks\Repositories\PaisRepositoryInterface;
 
 class BrowseController extends BaseController
 {
@@ -39,6 +40,13 @@ class BrowseController extends BaseController
     protected $ciudades;
 
     /**
+     * paises repository.
+     *
+     * @var \Tricks\Repositories\CiudadRepositoryInterface
+     */
+    protected $paises;
+
+    /**
      * Trick repository.
      *
      * @var \Tricks\Repositories\TrickRepositoryInterface
@@ -52,6 +60,7 @@ class BrowseController extends BaseController
      * @param  \Tricks\Repositories\TagRepositoryInterface  $tags
      * @param  \Tricks\Repositories\CiudadesRepositoryInterface  $ciudades     
      * @param  \Tricks\Repositories\TrickRepositoryInterface  $tricks
+     * @param  \Tricks\Repositories\PaisRepositoryInterface  $paises
      * @return void
      */
     public function __construct(
@@ -59,7 +68,8 @@ class BrowseController extends BaseController
         CountryRepositoryInterface $countries,
         TagRepositoryInterface $tags,
         CiudadRepositoryInterface $ciudades,
-        TrickRepositoryInterface $tricks
+        TrickRepositoryInterface $tricks,
+        PaisRepositoryInterface  $paises
     ) {
         parent::__construct();
 
@@ -68,6 +78,7 @@ class BrowseController extends BaseController
         $this->tags       = $tags;
         $this->ciudades   = $ciudades;
         $this->tricks     = $tricks;
+        $this->paises     = $paises;
     }
 
     /**
@@ -125,7 +136,7 @@ class BrowseController extends BaseController
 
    
 
-/**
+    /**
      * Show the ciudades index.
      *
      * @return \Response
@@ -135,6 +146,18 @@ class BrowseController extends BaseController
         $ciudades = $this->ciudades->findAllWithCiudadCount();
 
         $this->view('browse.ciudades', compact('ciudades'));
+    }
+
+    /**
+     * Show the paises index.
+     *
+     * @return \Response
+     */
+    public function getPaisIndex()
+    {
+        $ciudades = $this->paises->findAllWithPaisCount();
+
+        $this->view('browse.paises', compact('paises'));
     }
 
     /**

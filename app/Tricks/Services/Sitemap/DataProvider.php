@@ -7,6 +7,7 @@ use Tricks\Repositories\TagRepositoryInterface;
 use Tricks\Repositories\CiudadRepositoryInterface;
 use Tricks\Repositories\TrickRepositoryInterface;
 use Tricks\Repositories\CategoryRepositoryInterface;
+use Tricks\Repositories\PaisRepositoryInterface;
 
 class DataProvider
 {
@@ -23,6 +24,13 @@ class DataProvider
      * @var \Tricks\Repositories\TagRepositoryInterface
      */
     protected $tags;
+
+    /**
+     * Paises repository instance.
+     *
+     * @var \Tricks\Repositories\TagRepositoryInterface
+     */
+    protected $paises;
 
     /**
      * Ciudades repository instance.
@@ -53,6 +61,7 @@ class DataProvider
      * @param  \Tricks\Repositories\CiudadRepositoryInterface       $ciudades
      * @param  \Tricks\Repositories\TrickRepositoryInterface     $tricks
      * @param  \Tricks\Repositories\CategoryRepositoryInterface  $categories
+     * @param  \Tricks\Repositories\PaisRepositoryInterface  $paises
      * @return void
      */
     public function __construct(
@@ -60,12 +69,14 @@ class DataProvider
         TagRepositoryInterface $tags,
         CiudadRepositoryInterface $ciudades,
         TrickRepositoryInterface $tricks,
+        PaisRepositoryInterface $paises,
         CategoryRepositoryInterface $categories
     ) {
         $this->url = $url;
         $this->tags = $tags;
         $this->ciudades = $ciudades;
         $this->tricks = $tricks;
+        $this->paises = $paises;
         $this->categories = $categories;
     }
 
@@ -87,6 +98,16 @@ class DataProvider
     public function getCiudades()
     {
         return $this->ciudades->findAll();
+    }
+
+    /**
+     * Get all the paises to include in the sitemap.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection|\Tricks\Ciudad[]
+     */
+    public function getPaises()
+    {
+        return $this->paises->findAll();
     }
 
     /**

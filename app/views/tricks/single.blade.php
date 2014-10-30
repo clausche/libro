@@ -73,9 +73,7 @@
                             <li class="list-group-item">
                                 <span class="fa fa-eye"></span> Continente : {{ $pais->continent }} 
                             </li>
-                            <li class="list-group-item">
-                                <span class="fa fa-eye"></span> {{ $trick->view_cache }} {{Str::plural('visita', count($trick->view_cache ));}}
-                            </li>
+                            
                             <li class="list-group-item">
                                 <span class="fa fa-eye"></span> Población : {{ number_format($ciudad->population) }}
                             </li>

@@ -16,6 +16,7 @@ Route::when('*', 'trick.view_throttle');
 Route::pattern('tag_slug', '[a-z0-9\-]+');
 Route::pattern('ciudad_slug', '[a-z0-9\-]+');
 Route::pattern('trick_slug', '[a-z0-9\-]+');
+Route::pattern('pais_slug', '[a-z0-9\-]+');
 
 # Admin routes
 Route::group([ 'prefix' => 'admin', 'namespace' => 'Controllers\Admin' ], function () {
@@ -37,6 +38,10 @@ Route::group([ 'prefix' => 'admin', 'namespace' => 'Controllers\Admin' ], functi
     Route::controller('categories', 'CategoriesController', [
         'getIndex' => 'admin.categories.index',
         'getView'  => 'admin.categories.view'
+    ]);
+    Route::controller('paises', 'PaisesController', [
+        'getIndex' => 'admin.paises.index',
+        'getView'  => 'admin.paises.view'
     ]);
 
     Route::controller('users', 'UsersController');
@@ -76,10 +81,14 @@ Route::group([ 'namespace' => 'Controllers' ], function () {
     Route::get('tags', [ 'as' => 'browse.tags', 'uses' => 'BrowseController@getTagIndex' ]);
     //Route::get('tags/{tag_slug}', [ 'as' => 'tricks.browse.tag', 'uses' => 'BrowseController@getBrowseTag' ]);
     Route::get('tags/{tag_slug}', [ 'as' => 'tricks.browse.tag', 'uses' => 'BrowseController@getBrowseTag' ]);
+
     Route::get('ciudades', [ 'as' => 'browse.ciudades', 'uses' => 'BrowseController@getCiudadIndex' ]);
     //Route::get('ciudades/{ciudad_slug}', [ 'as' => 'tricks.browse.ciudad', 'uses' => 'BrowseController@getBrowseCiudad' ]);
     //Route::get('ciudades/{ciudad_slug}', [ 'as' => 'tricks.browse.ciudad', 'uses' => 'CiudadesController@getShow' ]);
     Route::get('ciudades/{ciudad_slug}', [ 'as' => 'tricks.browse.ciudad', 'uses' => 'BrowseController@getBrowseCiudad' ]);
+
+    Route::get('paises', [ 'as' => 'browse.paises', 'uses' => 'BrowseController@getPaisIndex' ]);
+    Route::get('paises/{pais_slug}', [ 'as' => 'tricks.browse.pais', 'uses' => 'BrowseController@getBrowsePais' ]);
 
 
     ##########################################
@@ -123,6 +132,12 @@ Route::group([ 'namespace' => 'Controllers' ], function () {
     #######################################-->
 
     #######################################-->
+    # tags creation route
+    Route::get('user/paises/new', [ 'as' => 'paises.new', 'uses' => 'UserPaisesController@getNew' ]);
+    Route::post('user/paises/new', 'UserPaisesController@postNew');
+    #######################################-->
+
+    #######################################-->
     # ciudades creation route
     Route::get('user/ciudades/new', [ 'as' => 'ciudades.new', 'uses' => 'UserCiudadesController@getNew' ]);
     Route::post('user/ciudades/new', 'UserCiudadesController@postNew');
@@ -135,6 +150,11 @@ Route::group([ 'namespace' => 'Controllers' ], function () {
     #Tag editing route ################->
     Route::get('user/tags/{tag_slug}', [ 'as' => 'tags.edit', 'uses' => 'UserTagsController@getEdit' ]);
     Route::post('user/tags/{tag_slug}', 'UserTagsController@postEdit');
+    ################################################->
+
+    #Pais editing route ################->
+    Route::get('user/paises/{pais_slug}', [ 'as' => 'paises.edit', 'uses' => 'UserPaisesController@getEdit' ]);
+    Route::post('user/paises/{pais_slug}', 'UserPaisesController@postEdit');
     ################################################->
 
     #Ciudad editing route ################->
