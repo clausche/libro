@@ -1,4 +1,4 @@
-@section('title', trans('admin.viewing_ciudades'))
+@section('title', 'lista de paises')
 
 @section('content')
 <div class="container">
@@ -14,18 +14,18 @@
 			<table class="table">
 			   <thead>
 			     <tr>
-			       <th>{{ trans('admin.ciudad') }}</th>
+			       <th>Lista de paises</th>
 			       <th class="col-lg-3 text-right">{{ trans('admin.actions') }}</th>
 			     </tr>
 			   </thead>
 			   <tbody>
-			  	@foreach($ciudades as $ciudad)
-			    <tr rel="{{ $ciudad->id }}">
-			        <td><a href="{{url('admin/ciudades/view/'.$ciudad->id)}}">{{ $ciudad->name }}</a></td>
+			  	@foreach($paises as $pais)
+			    <tr rel="{{ $pais->id }}">
+			        <td><a href="{{url('admin/ciudades/view/'.$pais->id)}}">{{ $pais->name }}</a></td>
 			        <td>
 			        	<div class="btn-group pull-right">
-				        <a class="btn btn-primary btn-sm" href="{{url('admin/ciudades/view/'.$ciudad->id)}}">{{ trans('admin.edit') }}</a> 
-				        <a class="delete_toggler btn btn-danger btn-sm" rel="{{$ciudad->id}}">{{ trans('admin.delete') }}</a>
+				        <a class="btn btn-primary btn-sm" href="{{url('admin/ciudades/view/'.$pais->id)}}">{{ trans('admin.edit') }}</a> 
+				        <a class="delete_toggler btn btn-danger btn-sm" rel="{{$pais->id}}">{{ trans('admin.delete') }}</a>
 			        	</div>
 			        </td>
 			     </tr>

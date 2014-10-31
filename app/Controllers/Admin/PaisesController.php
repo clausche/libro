@@ -60,9 +60,9 @@ class PaisesController extends BaseController
      */
     public function getView($id)
     {
-        $ciudad = $this->paises->findById($id);
+        $pais = $this->paises->findById($id);
 
-        $this->view('admin.paises.edit', compact('ciudad'));
+        $this->view('admin.paises.edit', compact('pais'));
     }
 
     /**

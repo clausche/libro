@@ -25,7 +25,7 @@ class PaisRepository extends AbstractRepository implements PaisRepositoryInterfa
      * @param  \Tricks\Ciudad $ciudades
      * @return void
      */
-    public function __construct(Ciudad $pais)
+    public function __construct(Pais $pais)
     {
         $this->model = $pais;
     }
@@ -65,11 +65,11 @@ class PaisRepository extends AbstractRepository implements PaisRepositoryInterfa
 */
     public function findAll()
     {
-        $ciudades = $this->model
+        $paises = $this->model
                      
                      ->get();
 
-        return $ciudades;
+        return $paises;
     }
 
     /**
