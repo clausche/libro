@@ -215,6 +215,26 @@ class BrowseController extends BaseController
     }
 
     /**
+     * Show the browse by ciudad page.
+     *
+     * @param  string  $ciudad
+     * @return \Response
+     */
+    public function getBrowsePais($pais)
+    {
+        list($pais, $tricks) = $this->tricks->findByPais($pais);
+
+        $type      = \Lang::get('browse.pais', array('pais' => $pais->name));
+        $pageTitle = \Lang::get('browse.pais', array('pais' => $pais->name));
+
+        //$this->view('browse.index', compact('tricks', 'type', 'pageTitle','ciudad'));
+        $this->view('paises.single', compact('tricks', 'type', 'pageTitle','pais'));
+
+        
+
+    }
+
+    /**
      * Show the browse recent tricks page.
      *
      * @return \Response

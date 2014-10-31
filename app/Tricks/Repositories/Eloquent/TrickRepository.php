@@ -380,6 +380,25 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
 
         return [ $ciudad, $tricks ];
     }
+    /**
+     * Find all tricks for the tag that matches the given slug.
+     *
+     * @param  string $slug
+     * @param  integer $perPage
+     * @return \Illuminate\Pagination\Paginator|\Tricks\Trick[]
+     */
+    public function findByPais($slug, $perPage = 6)
+    {
+        $pais = $this->pais->whereName($slug)->first();
+
+        if (is_null($pais)) {
+            throw new TagNotFoundException('El país "' . $slug . '" no existe!');
+        }
+
+        $tricks = $pais->tricks()->orderBy('created_at', 'desc')->paginate($perPage);
+
+        return [ $pais, $tricks ];
+    }
 
     /**
      * Find the next trick that was added after the given trick.

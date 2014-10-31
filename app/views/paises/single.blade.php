@@ -1,11 +1,9 @@
 @foreach($tricks as $trick)
             
         @endforeach
-@foreach ($trick->allCategories as $category)
-            
-        @endforeach
-@section('title', $category->name)
-@section('description', $ciudad->pageDescription)
+
+@section('title', $pais->name)
+@section('description', $pais->pageDescription)
 
 @section('scripts')
     <script src="{{ url('js/vendor/highlight.pack.js')}}"></script>
@@ -26,7 +24,7 @@
         <div class="row">
             <div class="col-lg-9 col-md-8">
                 <div class="content-box">
-                    @if(Auth::check() && (Auth::user()->id == $ciudad->user_id))
+                    @if(Auth::check() && (Auth::user()->id == $pais->user_id))
                         <div class="text-right">
                             <a data-toggle="modal" href="#deleteModal">Delete</a> |
                             <a href="{{$trick->editLink}}">Editar</a>
@@ -37,17 +35,15 @@
                         
                         <div class="trick-user-data">
                             <h1 class="page-title">
-                                {{ $category->name }} en {{ $ciudad->name }}
+                                 en {{ $pais->name }}
                             </h1>
-                            @foreach ($trick as $trick)
-                                {{-- expr --}}
-                            @endforeach
-                            {{ $trick->title }}
+                            
+                            
                         </div>
                     </div>
-                    <p>{{{ $ciudad->countrycode }}}</p>
+                    <p>{{{ $pais->ccode }}}</p>
                     
-                    {{ $category->name }}
+                    
                 </div>
                 
             </div>
@@ -57,44 +53,20 @@
                         <ul class="list-group trick-stats">
                             
                             <li class="list-group-item">
-                                <span class="fa fa-eye"></span> Población : {{ number_format($ciudad->population) }}
+                                <span class="fa fa-eye"></span> Continente : {{ $pais->continent }}
                             </li>
                             <li class="list-group-item" >
-                                <span class="fa fa-eye"></span> Distrito : {{ $ciudad->district }}
+                                <span class="fa fa-eye"></span> Jefe de Estado : {{ $pais->headofstate }}
                                 
                             </li>
                             <li class="list-group-item" >
-                            @foreach ($trick->tags as $tag)
-                                
-                            @endforeach
-                                <span class="fa fa-eye"></span> País : {{ $tag->name }}
+                            
+                                <span class="fa fa-eye"></span> País : {{ $pais->name }}
                                 
                             </li>
                         </ul>
-                       @if(count($trick->allCategories))
-                            <b>Categorias</b>
-                            <ul class="nav nav-list push-down">
-                                @foreach($trick->allCategories as $category)
-                                    <li>
-                                        <a href="{{ route('tricks.browse.category', $category->slug) }}">
-                                            {{ $category->name }}
-                                        </a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        @endif
-                        @if(count($trick->tags))
-                            <b>País-(Tags)</b>
-                            <ul class="nav nav-list push-down">
-                                @foreach($trick->tags as $tag)
-                                    <li>
-                                        <a href="{{ route('tricks.browse.tag', $tag->slug) }}">
-                                            {{ $tag->name }}
-                                        </a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        @endif
+                       
+                        
                         
                         <div class="clearfix">
                            
