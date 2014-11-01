@@ -2529,7 +2529,7 @@ return array(
     'Tricks\\Filters\\ViewThrottleFilter' => $baseDir . '/app/Tricks/Filters/ViewThrottleFilter.php',
     'Tricks\\Pais' => $baseDir . '/app/Tricks/Pais.php',
     'Tricks\\Presenters\\CiudadPresenter' => $baseDir . '/app/Tricks/Presenters/CiudadPresenter.php',
-    'Tricks\\Presenters\\PaisPresenter' => $baseDir . '/app/Tricks/Presenters/paisPresenter.php',
+    'Tricks\\Presenters\\PaisPresenter' => $baseDir . '/app/Tricks/Presenters/PaisPresenter.php',
     'Tricks\\Presenters\\TagPresenter' => $baseDir . '/app/Tricks/Presenters/TagPresenter.php',
     'Tricks\\Presenters\\TrickPresenter' => $baseDir . '/app/Tricks/Presenters/TrickPresenter.php',
     'Tricks\\Presenters\\UserPresenter' => $baseDir . '/app/Tricks/Presenters/UserPresenter.php',

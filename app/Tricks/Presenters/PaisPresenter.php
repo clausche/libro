@@ -26,7 +26,7 @@ class PaisPresenter extends BasePresenter
      * @param  \Tricks\Trick  $trick
      * @return void
      */
-    public function __construct(Ciudad $pais)
+    public function __construct(Pais $pais)
     {
         $this->resource = $pais;
     }

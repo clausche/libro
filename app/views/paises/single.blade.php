@@ -24,13 +24,13 @@
         <div class="row">
             <div class="col-lg-9 col-md-8">
                 <div class="content-box">
-                    @if(Auth::check() && (Auth::user()->id == $pais->user_id))
+                    
                         <div class="text-right">
                             <a data-toggle="modal" href="#deleteModal">Delete</a> |
-                            <a href="{{$trick->editLink}}">Editar</a>
-                            @include('tricks.delete',['link'=>$ciudad->deleteLink])
+                            <a href="{{$pais->editLink}}">Editar</a>
+                            
                         </div>
-                    @endif
+                    
                     <div class="trick-user">
                         
                         <div class="trick-user-data">

@@ -13,6 +13,8 @@ class Pais extends Model
      */
     protected $table = 'paises';
 
+    public $presenter = 'Tricks\Presenters\PaisPresenter';
+
     /**
      * Query the tricks that belong to the tag.
      *
