@@ -12,9 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Tricks\Services\Forms\PaisForm;
 use Tricks\Services\Forms\PaisEditForm;
 use Illuminate\Database\Eloquent\Collection;
-use Tricks\Exceptions\CiudadNotFoundException;
-use Tricks\Repositories\TrickRepositoryInterface;
-use Tricks\Repositories\CiudadRepositoryInterface;
+use Tricks\Exceptions\PaisNotFoundException;
 use Tricks\Repositories\PaisRepositoryInterface;
 
 class PaisRepository extends AbstractRepository implements PaisRepositoryInterface
@@ -140,56 +138,56 @@ class PaisRepository extends AbstractRepository implements PaisRepositoryInterfa
      */
     public function create(array $data)
     {
-        $ciudad = $this->getNew();
+        $pais = $this->getNew();
 
-        $ciudad->name = $data['name'];
-        $ciudad->slug = Str::slug($ciudad->name, '-');
+        $pais->name = $data['name'];
+        $pais->slug = Str::slug($pais->name, '-');
 
-        $ciudad->save();
+        $pais->save();
 
-        return $ciudad;
+        return $pais;
     }
 
     /**
-     * Update the ciudad in the database.
+     * Update the pais in the database.
      *
-     * @param  \Tricks\Ciudad $ciudad
+     * @param  \Tricks\Pais $pais
      * @param  array $data
-     * @return \Tricks\Ciudad
+     * @return \Tricks\Pais
      */
-    public function edit(Ciudad $ciudad, array $data)
+    public function edit(Pais $pais, array $data)
     {
         //$tag->user_id = $data['user_id'];
-        $ciudad->name       = e($data['name']);
-        $ciudad->slug        = Str::slug($data['slug'], '-');
+        $pais->name       = e($data['name']);
+        $pais->slug        = Str::slug($data['slug'], '-');
         //$ciudad->spanish_name = e($data['spanish_name']);
         //$ciudad->iso2 = e($data['iso2']);
         //$tag->code        = $data['code'];
 
-        $ciudad->save();
+        $pais->save();
 
         //$tag->tags()->sync($data['tags']);
         //$tag->ciudades()->sync($data['ciudades']);
         //$tag->categories()->sync($data['categories']);
 
-        return $ciudad;
+        return $pais;
     }
 
     /**
-     * Update the specified ciudad in the database.
+     * Update the specified pais in the database.
      *
      * @param  mixed  $id
      * @param  array  $data
-     * @return \Tricks\Category
+     * @return \Tricks\Pais
      */
     public function update($id, array $data)
     {
-        $ciudad = $this->findById($id);
+        $pais = $this->findById($id);
 
-        $ciudad->name = $data['name'];
-        $ciudad->slug = Str::slug($ciudad->name, '-');
+        $pais->name = $data['name'];
+        $pais->slug = Str::slug($pais->name, '-');
 
-        $ciudad->save();
+        $pais->save();
 
         return $ciudad;
     }
@@ -216,7 +214,7 @@ class PaisRepository extends AbstractRepository implements PaisRepositoryInterfa
      */
     public function getForm()
     {
-        return new CiudadForm;
+        return new PaisForm;
     }
     /**
      * Get the ciudad edit form service.
@@ -225,6 +223,6 @@ class PaisRepository extends AbstractRepository implements PaisRepositoryInterfa
      */
     public function getEditForm($id)
     {
-        return new CiudadEditForm($id);
+        return new PaisEditForm($id);
     }
 }

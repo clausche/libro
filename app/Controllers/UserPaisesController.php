@@ -174,17 +174,17 @@ class UserPaisesController extends BaseController
      */
     public function postEdit($slug)
     {
-        $ciudad = $this->ciudades->findBySlug($slug);
-        $form  = $this->ciudades->getEditForm($ciudad->id);
+        $pais = $this->paises->findBySlug($slug);
+        $form  = $this->paises->getEditForm($pais->id);
 
         if (! $form->isValid()) {
             return $this->redirectBack([ 'errors' => $form->getErrors() ]);
         }
 
         $data  = $form->getInputData();
-        $ciudad = $this->ciudades->edit($ciudad, $data);
+        $pais = $this->paises->edit($pais, $data);
 
-        return $this->redirectRoute('ciudades.edit', [ $ciudad->slug ], [
+        return $this->redirectRoute('ciudades.edit', [ $pais->slug ], [
             'success' => "Actualizado" 
             //\Lang::get('user_tricks.trick_updated')
         ]);

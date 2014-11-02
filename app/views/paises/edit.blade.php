@@ -45,18 +45,21 @@
 					         <h5>{{ Session::get('success') }}</h5>
 					    </div>
 					@endif
+					@foreach ($pais as $pais)
+						{{ $pais->id }}
+					@endforeach
 					
 					{{ Form::open(array('class'=>'form-vertical','id'=>'save-trick-form','role'=>'form'))}}
 					    
 					    
 					        
 					        <div class="form-group">
-					    	<label for="name">Nombre Ciudad</label>
-					    	{{Form::text('name', $ciudad->name, array('class'=>'form-control','placeholder'=>trans('tags.title_placeholder')));}}
+					    	<label for="name">Nombre País</label>
+					    	{{Form::text('name', $pais->name, array('class'=>'form-control','placeholder'=>trans('tags.title_placeholder')));}}
 					    	</div>
 					    	<div class="form-group">
-					    	<label for="slug">Nombre indicativo</label>
-					    	{{Form::text('slug', $ciudad->slug, array('class'=>'form-control','placeholder'=>'Nombre del país unido por un guion -' ));}}
+					    	<label for="headofstate">Jefe de Estado</label>
+					    	{{Form::text('headofstate', $pais->headofstate, array('class'=>'form-control','placeholder'=>'Jefe de Estado' ));}}
 					    	</div>
 					    
 					    	<!-- <div class="form-group">
