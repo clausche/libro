@@ -12,6 +12,7 @@ class Tag extends Model
      * @var string
      */
     protected $table = 'tags';
+    public $presenter = 'Tricks\Presenters\TagPresenter';
 
     /**
      * Query the tricks that belong to the tag.

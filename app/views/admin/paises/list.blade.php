@@ -21,10 +21,10 @@
 			   <tbody>
 			  	@foreach($paises as $pais)
 			    <tr rel="{{ $pais->id }}">
-			        <td><a href="{{url('admin/ciudades/view/'.$pais->id)}}">{{ $pais->name }}</a></td>
+			        <td><a href="{{url('admin/paises/view/'.$pais->id)}}">{{ $pais->name }}</a></td>
 			        <td>
 			        	<div class="btn-group pull-right">
-				        <a class="btn btn-primary btn-sm" href="{{url('admin/ciudades/view/'.$pais->id)}}">{{ trans('admin.edit') }}</a> 
+				        <a class="btn btn-primary btn-sm" href="{{url('admin/paises/view/'.$pais->id)}}">{{ trans('admin.edit') }}</a> 
 				        <a class="delete_toggler btn btn-danger btn-sm" rel="{{$pais->id}}">{{ trans('admin.delete') }}</a>
 			        	</div>
 			        </td>
@@ -101,9 +101,9 @@
 		$('.delete_toggler').each(function(index,elem) {
 		    $(elem).click(function(e){
 		    	e.preventDefault();
-		    	var href = "{{url('admin/ciudades/delete')}}/";
+		    	var href = "{{url('admin/paises/delete')}}/";
 				$('#delete_link').attr('href',href + $(elem).attr('rel'));
-				$('#delete_ciudad').modal('show');
+				$('#delete_pais').modal('show');
 		    });
 		});
 	});

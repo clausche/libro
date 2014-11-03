@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+
 use Illuminate\Support\Facades\Auth;
 use Tricks\Repositories\TagRepositoryInterface;
 use Tricks\Repositories\CiudadRepositoryInterface;
@@ -41,12 +42,7 @@ class UserPaisesController extends BaseController
      */
     protected $ciudades;
 
-    /**
-     * Ciudad repository.
-     *
-     * @var \Tricks\Repositories\TagRepositoryInterface
-     */
-    protected $paises;
+    
 
     /**
      * Category repository.
@@ -54,6 +50,13 @@ class UserPaisesController extends BaseController
      * @var \Tricks\Repositories\CategoryRepositoryInterface
      */
     protected $categories;
+
+    /**
+     * Ciudad repository.
+     *
+     * @var \Tricks\Repositories\TagRepositoryInterface
+     */
+    protected $paises;
 
     /**
      * Create a new TrickController instance.
@@ -139,6 +142,7 @@ class UserPaisesController extends BaseController
         $paisList      = $this->paises->listAll();
         $tag        = $this->tags->findBySlug($slug);
         $tagList      = $this->tags->listAll();
+        
         /*
         $categoryList = $this->categories->listAll();
         $countryList = $this->countries->listAll();*/
@@ -161,8 +165,10 @@ class UserPaisesController extends BaseController
             'selectedCategories' => $selectedCategories,*/
             'trick'              => $trick,
             'tag'               => $tag,
-            'pais'               => $pais,
-            'ciudad'            => $ciudad
+            
+            'ciudad'            => $ciudad,
+            'pais'               => $pais
+            
         ]);
     }
 
@@ -184,7 +190,7 @@ class UserPaisesController extends BaseController
         $data  = $form->getInputData();
         $pais = $this->paises->edit($pais, $data);
 
-        return $this->redirectRoute('ciudades.edit', [ $pais->slug ], [
+        return $this->redirectRoute('paises.edit', [ $pais->slug ], [
             'success' => "Actualizado" 
             //\Lang::get('user_tricks.trick_updated')
         ]);

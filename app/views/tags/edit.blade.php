@@ -25,7 +25,7 @@
 						</div>
 					@endif
 					<h1 class="page-title">
-						{{ trans('tricks.update_tag') }}
+						{{ trans('tricks.update_tag') }} {{ $porid->id }}
 					</h1>
 					@if(Session::get('errors'))
 					    <div class="alert alert-danger alert-dismissable">

@@ -1,6 +1,10 @@
 <?php
 
 namespace Tricks\Repositories;
+use Tricks\User;
+use Tricks\Trick;
+use Tricks\Tag;
+use Tricks\Pais;
 
 interface PaisRepositoryInterface
 {

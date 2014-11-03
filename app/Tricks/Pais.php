@@ -28,4 +28,8 @@ class Pais extends Model
     {
         return $this->belongsTo('Tricks\Trick');
     }
+    public function tags()
+    {
+        return $this->hasMany('Tricks\Tag');
+    }
 }

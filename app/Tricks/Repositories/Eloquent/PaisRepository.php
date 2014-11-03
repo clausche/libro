@@ -9,6 +9,7 @@ use Tricks\Pais;
 use Tricks\Category;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
+use Tricks\Services\Forms\TrickEditForm;
 use Tricks\Services\Forms\PaisForm;
 use Tricks\Services\Forms\PaisEditForm;
 use Illuminate\Database\Eloquent\Collection;
@@ -41,8 +42,8 @@ class PaisRepository extends AbstractRepository implements PaisRepositoryInterfa
     }*/
     public function listAll()
     {
-        $ciudades = $this->model->orderBy('name', 'asc')->lists('name', 'id');
-        return $ciudades;
+        $paises = $this->model->orderBy('name', 'asc')->lists('name', 'id');
+        return $paises;
     }
 
     /**
@@ -79,6 +80,7 @@ class PaisRepository extends AbstractRepository implements PaisRepositoryInterfa
     public function findById($id)
     {
         return $this->model->find($id);
+        //return $this->model->whereId($id)->get();
     }
 
     /**
@@ -88,35 +90,35 @@ class PaisRepository extends AbstractRepository implements PaisRepositoryInterfa
      */
     public function findAllWithTrickCount($per_page = 10)
     {
-        return $this->model
+        /*return $this->model
                     ->select('ciudad.name','ciudad.slug',DB::raw('COUNT(tricks.id) as trick_count'))
                     ->leftJoin('ciudad_trick', 'ciudades.id', '=', 'ciudad_trick.ciudad_id')
                     ->leftJoin('tricks', 'tricks.id', '=', 'ciudad_trick.trick_id')
                     ->groupBy('ciudades.slug')
                     ->orderBy('trick_count', 'desc')
-                    ->paginate($per_page);
+                    ->paginate($per_page);*/
     }
 
     public function findAllWithCiudadCount($per_page = 10)
     {
-        return $this->model
+        /*return $this->model
                     ->select('ciudades.name','ciudades.slug',DB::raw('COUNT(tricks.id) as trick_count'))
                     ->leftJoin('ciudad_trick', 'ciudades.id', '=', 'ciudad_trick.ciudad_id')
                     ->leftJoin('tricks', 'tricks.id', '=', 'ciudad_trick.trick_id')
                     ->groupBy('ciudades.slug')
                     ->orderBy('trick_count', 'desc')
-                    ->paginate($per_page);
+                    ->paginate($per_page);*/
     }
 
     public function findAllWithPaisCount($per_page = 10)
     {
-        return $this->model
-                    ->select('paises.name','ciudades.slug',DB::raw('COUNT(tricks.id) as trick_count'))
+        /*return $this->model
+                    ->select('paises.name','paises.slug',DB::raw('COUNT(tricks.id) as trick_count'))
                     ->leftJoin('ciudad_trick', 'ciudades.id', '=', 'ciudad_trick.ciudad_id')
                     ->leftJoin('tricks', 'tricks.id', '=', 'ciudad_trick.trick_id')
                     ->groupBy('ciudades.slug')
                     ->orderBy('trick_count', 'desc')
-                    ->paginate($per_page);
+                    ->paginate($per_page);*/
     }
 
     /**
@@ -160,7 +162,7 @@ class PaisRepository extends AbstractRepository implements PaisRepositoryInterfa
         //$tag->user_id = $data['user_id'];
         $pais->name       = e($data['name']);
         $pais->slug        = Str::slug($data['slug'], '-');
-        //$ciudad->spanish_name = e($data['spanish_name']);
+        $pais->headofstate = e($data['headofstate']);
         //$ciudad->iso2 = e($data['iso2']);
         //$tag->code        = $data['code'];
 
@@ -186,10 +188,11 @@ class PaisRepository extends AbstractRepository implements PaisRepositoryInterfa
 
         $pais->name = $data['name'];
         $pais->slug = Str::slug($pais->name, '-');
+        $pais->headofstate = $data['headofstate'];
 
         $pais->save();
 
-        return $ciudad;
+        return $pais;
     }
 
     /**
@@ -213,6 +216,15 @@ class PaisRepository extends AbstractRepository implements PaisRepositoryInterfa
      * @return \Tricks\Services\Forms\CiudadForm
      */
     public function getForm()
+    {
+        return new PaisForm;
+    }
+    /**
+     * Get the tag creation form service.
+     *
+     * @return \Tricks\Services\Forms\PaisForm
+     */
+    public function getCreationForm()
     {
         return new PaisForm;
     }

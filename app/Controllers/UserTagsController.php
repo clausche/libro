@@ -127,6 +127,7 @@ class UserTagsController extends BaseController
         /*$ciudadList   = $this->ciudades->listAll();
         $categoryList = $this->categories->listAll();
         $countryList = $this->countries->listAll();*/
+        $porid = $this->tags->findById($tag->id);
 
 
       /*  $selectedTags       = $this->tags->listTagsIdsForTrick($tag);
@@ -142,7 +143,8 @@ class UserTagsController extends BaseController
             'categoryList'       => $categoryList,
             'selectedCategories' => $selectedCategories,*/
             'trick'              => $trick,
-            'tag'               => $tag
+            'tag'               => $tag,
+            'porid' => $porid
         ]);
     }
 

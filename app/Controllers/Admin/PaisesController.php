@@ -93,7 +93,7 @@ class PaisesController extends BaseController
      */
     public function postView($id)
     {
-        $form = $this->ciudades->getForm();
+        $form = $this->paises->getForm();
 
         if (! $form->isValid()) {
             return $this->redirectRoute('admin.paises.view', $id)
@@ -101,7 +101,7 @@ class PaisesController extends BaseController
                         ->withInput();
         }
 
-        $ciudad = $this->ciudades->update($id, $form->getInputData());
+        $pais = $this->paises->update($id, $form->getInputData());
 
         return $this->redirectRoute('admin.paises.view', $id);
     }

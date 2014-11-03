@@ -28,7 +28,7 @@
                     @if(Auth::check() && (Auth::user()->id == $trick->user_id))
                         <div class="text-right">
                             <a data-toggle="modal" href="#deleteModal">Delete</a> |
-                            <a href="{{$trick->editLink}}">Editar</a>
+                            <a href="{{$tag->editLink}}">Editar</a>
                             @include('tricks.delete',['link'=>$trick->deleteLink])
                         </div>
                     @endif
@@ -58,7 +58,7 @@
                     slug: {{ $ciudad->slug}} -- district: {{ $ciudad->district }} 
                 @endforeach
                             <div>
-                                slug: {{ $tag->slug }}</a></b> {{-- $trick->timeago --}}
+                                slug: {{ $tag->slug }}</a></b> {{-- $trick->timeago --}} 
                             </div>
                 </div>
             </div>

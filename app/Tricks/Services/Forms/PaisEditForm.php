@@ -18,10 +18,10 @@ class PaisEditForm extends AbstractForm
      */
     protected $rules = [
         //'code'         => 'required|min:4|unique:tricks,title',
-        'name'   => 'required|min:2'
+        'name'   => 'required|min:2',
         //'continent'          => 'required',
         //'region'    => 'required',
-        //'headofstate'      => 'required'
+        'headofstate'      => 'required'
         //'code'          => 'required'
 
     ];
