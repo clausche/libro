@@ -17,8 +17,10 @@ class CiudadEditForm extends AbstractForm
      * @var array
      */
     protected $rules = [
-        'name'         => 'required|min:4|unique:tags,name',
-        'slug'         => 'required|min:4',
+        
+        'name'         => 'required|min:2'
+        //'name'         => 'required|min:4|unique:tags,name',
+        //'slug'         => 'required|min:4',
        // 'spanish_name' => 'required',
        // 'iso2'         => 'required'
         //'ciudades'      => 'required'

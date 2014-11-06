@@ -116,7 +116,7 @@ class CiudadRepository extends AbstractRepository implements CiudadRepositoryInt
      */
     public function findBySlug($slug)
     {
-        return $this->model->whereSlug($slug)->get();
+        return $this->model->whereSlug($slug)->first();
     }
 
     /**
@@ -146,18 +146,18 @@ class CiudadRepository extends AbstractRepository implements CiudadRepositoryInt
      */
     public function edit(Ciudad $ciudad, array $data)
     {
-        //$tag->user_id = $data['user_id'];
+        //$ciudad->user_id = $data['user_id'];
         $ciudad->name       = e($data['name']);
-        $ciudad->slug        = Str::slug($data['slug'], '-');
+        $ciudad->slug        = Str::slug($data['name'], '-');
         //$ciudad->spanish_name = e($data['spanish_name']);
         //$ciudad->iso2 = e($data['iso2']);
-        //$tag->code        = $data['code'];
+        //$ciudad->code        = $data['code'];
 
         $ciudad->save();
 
-        //$tag->tags()->sync($data['tags']);
-        //$tag->ciudades()->sync($data['ciudades']);
-        //$tag->categories()->sync($data['categories']);
+        //$ciudad->tags()->sync($data['tags']);
+        //$ciudad->ciudades()->sync($data['ciudades']);
+        //$ciudad->categories()->sync($data['categories']);
 
         return $ciudad;
     }

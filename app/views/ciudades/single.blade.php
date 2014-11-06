@@ -49,7 +49,9 @@
                     
                     {{ $category->name }}
                 </div>
-                
+                @foreach ($ciudad as $ciudad)
+                    {{-- expr --}}
+                @endforeach
             </div>
                 <div class="col-lg-3 col-md-4">
                     <div class="content-box">

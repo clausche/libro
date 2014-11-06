@@ -45,9 +45,7 @@
 					         <h5>{{ Session::get('success') }}</h5>
 					    </div>
 					@endif
-					@foreach ($pais as $pais)
-						{{ $pais->id }}
-					@endforeach
+					
 					
 					{{ Form::open(array('class'=>'form-vertical','id'=>'save-trick-form','role'=>'form'))}}
 					    
@@ -70,9 +68,9 @@
 					    	<label for="iso2">Nombre ISo2 del País</label>
 					    	{{--Form::text('iso2', $tag->iso2, array('class'=>'form-control','placeholder'=>'Nombre ISO2 del país' ));--}}
 					    	</div> -->
-					    	@foreach ($pais as $pais)
+					    	
 						{{ $pais->id }}
-					@endforeach
+					
 					    	<div class="text-right">
 					          <button type="submit"  id="save-section" class="btn btn-primary ladda-button" data-style="expand-right">
 					            {{ trans('tricks.update_tag') }}

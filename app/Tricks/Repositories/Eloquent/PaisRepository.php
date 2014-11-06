@@ -129,7 +129,7 @@ class PaisRepository extends AbstractRepository implements PaisRepositoryInterfa
      */
     public function findBySlug($slug)
     {
-        return $this->model->whereSlug($slug)->get();
+        return $this->model->whereSlug($slug)->first();
     }
 
     /**
@@ -161,7 +161,7 @@ class PaisRepository extends AbstractRepository implements PaisRepositoryInterfa
     {
         //$tag->user_id = $data['user_id'];
         $pais->name       = e($data['name']);
-        $pais->slug        = Str::slug($data['slug'], '-');
+        $pais->slug        = Str::slug($data['name'], '-');
         $pais->headofstate = e($data['headofstate']);
         //$ciudad->iso2 = e($data['iso2']);
         //$tag->code        = $data['code'];

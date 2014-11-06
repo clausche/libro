@@ -11,8 +11,8 @@ use Tricks\Category;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Tricks\Services\Forms\TagForm;
-use Tricks\Services\Forms\TrickForm;
-use Tricks\Services\Forms\TrickEditForm;
+/*use Tricks\Services\Forms\TrickForm;
+use Tricks\Services\Forms\TrickEditForm;*/
 use Tricks\Services\Forms\TagEditForm;
 use Tricks\Exceptions\TagNotFoundException;
 use Tricks\Exceptions\CiudadNotFoundException;
