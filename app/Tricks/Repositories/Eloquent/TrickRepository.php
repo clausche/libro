@@ -107,7 +107,7 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
      */
     public function findByTitle($slug)
     {
-        return $this->pais->whereName($slug)->get();
+        return $this->pais->whereSlug($slug)->first();
     }
 
     public function findAll()
