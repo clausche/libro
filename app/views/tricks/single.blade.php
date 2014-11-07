@@ -46,14 +46,22 @@
                     
                 </div>
                 <div class="content-box">
-                            <div>
-                                Submitted by <b><a href="{{ route('user.profile', $trick->user->username) }}">{{ $trick->user->username }}</a></b> - {{ $trick->timeago }}
+                    <div class="trick-user">
+                            <div class="trick-user-data">
+                            <h1 class="page-title">
+                                Dirección 
+                             </h1>   {{ $trick->emb_direccion }}
                             </div>
+                    </div>
                 </div>
                 <div class="content-box">
-                            <div>
-                                Submitted by <b><a href="{{ route('user.profile', $trick->user->username) }}">{{ $trick->user->username }}</a></b> - {{ $trick->timeago }}
+                    <div class="trick-user">
+                            <div class="trick-user-data">
+                            <h1 class="page-title">
+                                Teléfonos 
+                             </h1>   {{ $trick->emb_telefonos }}
                             </div>
+                    </div>
                 </div>
                 <div class="content-box">
                             <div>

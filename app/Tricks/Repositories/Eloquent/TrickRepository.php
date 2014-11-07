@@ -292,6 +292,7 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
         $trick->title       = e($data['title']);
         $trick->slug        = Str::slug($data['title'], '-');
         $trick->description = e($data['description']);
+        $trick->emb_direccion = e($data['emb_direccion']);
         //$trick->code        = $data['code'];
 
         $trick->save();
@@ -316,6 +317,7 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
         $trick->title       = e($data['title']);
         $trick->slug        = Str::slug($data['title'], '-');
         $trick->description = e($data['description']);
+        $trick->emb_direccion = e($data['emb_direccion']);
         //$trick->code        = $data['code'];
 
         $trick->save();

@@ -56,6 +56,7 @@
 					      {{Form::textarea('code', $trick->code, ['id'=>'code-editor','style'=>'display:none;']);}}
 					    </div> -->
 					    <div class="form-group">
+					    <label for="ciudad">Ciudad</label>
 					    	{{ Form::select('ciudades[]', $ciudadList, $selectedCiudades, array('placeholder'=>trans('tricks.ciudad_trick_placeholder'),'class' => 'form-control')); }}
 					    </div>
 					    
@@ -64,6 +65,10 @@
 					    </div>
 					    <div class="form-group">
 					    	{{ Form::select('categories[]', $categoryList, $selectedCategories, array('multiple','id'=>'categories','placeholder'=>trans('tricks.categorize_trick_placeholder'),'class' => 'form-control')); }}
+					    </div>
+					    <div class="form-group">
+					    	<label for="emb_direccion">Dirección</label>
+					    	{{Form::textarea('emb_direccion',$trick->emb_direccion, array('class'=>'form-control','placeholder'=>'Escriba aquí la dirección de la embajada','rows'=>'3'));}}
 					    </div>
 					    <div class="form-group">
 					        <div class="text-right">
