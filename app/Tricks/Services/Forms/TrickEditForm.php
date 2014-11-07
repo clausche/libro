@@ -53,8 +53,17 @@ class TrickEditForm extends AbstractForm
     public function getInputData()
     {
         return array_only($this->inputData, [
-            'title', 'description', 'tags', 'categories','emb_direccion',//, 'code'
-            'ciudades'
+            'title', 
+            'description', 
+            'tags', 
+            'categories',
+            'emb_direccion',
+            'emb_tfl',
+            'emb_fax',
+            'ciudades',
+            'emb_email',
+            'emb_web',
+            'emb_hora'
 
             ]);
     }
