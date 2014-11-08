@@ -59,16 +59,45 @@
                             <div class="trick-user-data">
                             <h1 class="page-title">
                                 Teléfonos 
-                             </h1>   {{ $trick->emb_telefonos }}
+                             </h1>   {{ $trick->emb_tlf }}
                             </div>
                     </div>
                 </div>
                 <div class="content-box">
-                            <div>
-                                @foreach ($paises as $pais)
-                                    {{ $pais->headofstate }}
-                                @endforeach
+                    <div class="trick-user">
+                            <div class="trick-user-data">
+                            <h1 class="page-title">
+                                Fax 
+                             </h1>   {{ $trick->emb_fax }}
                             </div>
+                    </div>
+                </div>
+                <div class="content-box">
+                    <div class="trick-user">
+                            <div class="trick-user-data">
+                            <h1 class="page-title">
+                                Email 
+                             </h1>   {{ $trick->emb_email }}
+                            </div>
+                    </div>
+                </div>
+                <div class="content-box">
+                    <div class="trick-user">
+                            <div class="trick-user-data">
+                            <h1 class="page-title">
+                                Horario 
+                             </h1>   {{ $trick->emb_hora }}
+                            </div>
+                    </div>
+                </div>
+                <div class="content-box">
+                    <div class="trick-user">
+                            <div class="trick-user-data">
+                            <h1 class="page-title">
+                                Página Web 
+                             </h1>   {{ $trick->emb_web }}
+                            </div>
+                    </div>
                 </div>
             </div>
                 <div class="col-lg-3 col-md-4">
@@ -79,7 +108,7 @@
                         <b>Estadisticas</b>
                         <ul class="list-group trick-stats">
                             <li class="list-group-item">
-                                <span class="fa fa-eye"></span> Continente : {{ $pais->continent }} 
+                                <span class="fa fa-eye"></span> Continente : {{ $paises->continent }} 
                             </li>
                             
                             <li class="list-group-item">
@@ -89,7 +118,7 @@
                                 <span class="fa fa-eye"></span> Distrito : {{ $ciudad->district }}
                             </li>
                             <li class="list-group-item" >
-                                <span class="fa fa-eye"></span> Presidente actual : {{ $pais->headofstate }}
+                                <span class="fa fa-eye"></span> Presidente actual : {{ $paises->headofstate }}
                             </li>
                         </ul>
                         @if(count($trick->allCategories))

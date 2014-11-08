@@ -61,14 +61,36 @@
 					    </div>
 					    
 					    <div class="form-group">
+					    	<label for="ciudad">Consulados</label>
 					    	{{ Form::select('tags[]', $tagList, $selectedTags, array('multiple','id'=>'tags','placeholder'=>trans('tricks.tag_trick_placeholder'),'class' => 'form-control')); }}
 					    </div>
 					    <div class="form-group">
+					    	<label for="ciudad">Categoria</label>
 					    	{{ Form::select('categories[]', $categoryList, $selectedCategories, array('multiple','id'=>'categories','placeholder'=>trans('tricks.categorize_trick_placeholder'),'class' => 'form-control')); }}
 					    </div>
 					    <div class="form-group">
 					    	<label for="emb_direccion">Dirección</label>
-					    	{{Form::textarea('emb_direccion',$trick->emb_direccion, array('class'=>'form-control','placeholder'=>'Escriba aquí la dirección de la embajada','rows'=>'3'));}}
+					    	{{Form::text('emb_direccion',$trick->emb_direccion, array('class'=>'form-control','placeholder'=>'Escriba aquí la dirección de la embajada','rows'=>'3'));}}
+					    </div>
+					    <div class="form-group">
+					    	<label for="emb_tlf">Teléfono</label>
+					    	{{Form::text('emb_tlf',$trick->emb_tlf, array('class'=>'form-control','placeholder'=>'Escriba aquí los teléfonos de la embajada','rows'=>'3'));}}
+					    </div>
+					    <div class="form-group">
+					    	<label for="emb_fax">Fax</label>
+					    	{{Form::text('emb_fax',$trick->emb_fax, array('class'=>'form-control','placeholder'=>'Escriba aquí los fax de la embajada','rows'=>'3'));}}
+					    </div>
+					    <div class="form-group">
+					    	<label for="emb_email">Email</label>
+					    	{{Form::text('emb_email',$trick->emb_email, array('class'=>'form-control','placeholder'=>'Escriba aquí el Email de la embajada','rows'=>'3'));}}
+					    </div>
+					    <div class="form-group">
+					    	<label for="emb_hora">Horario</label>
+					    	{{Form::text('emb_hora',$trick->emb_hora, array('class'=>'form-control','placeholder'=>'Escriba aquí el Horario de la embajada','rows'=>'3'));}}
+					    </div>
+					    <div class="form-group">
+					    	<label for="emb_web">Página Web</label>
+					    	{{Form::text('emb_web',$trick->emb_web, array('class'=>'form-control','placeholder'=>'Escriba aquí la web de la embajada','rows'=>'3'));}}
 					    </div>
 					    <div class="form-group">
 					        <div class="text-right">
