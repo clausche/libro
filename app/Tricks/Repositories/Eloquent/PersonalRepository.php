@@ -171,7 +171,7 @@ class PersonalRepository extends AbstractRepository implements PersonalRepositor
 
         $personal->name = $data['name'];
         $personal->slug = Str::slug($personal->name, '-');
-        
+        $personal->titulo = $data['titulo'];
 
         $personal->save();
 
@@ -189,7 +189,8 @@ class PersonalRepository extends AbstractRepository implements PersonalRepositor
     {
         //$tag->user_id = $data['user_id'];
         $personal->name       = e($data['name']);
-        $personal->slug        = Str::slug($data['slug'], '-');
+        $personal->slug        = Str::slug($data['name'], '-');
+        $personal->titulo = $data['titulo'];
         
 
         $personal->save();
@@ -214,6 +215,7 @@ class PersonalRepository extends AbstractRepository implements PersonalRepositor
 
         $personal->name = $data['name'];
         $personal->slug = Str::slug($personal->name, '-');
+        $personal->titulo = $data['titulo'];
 
         $personal->save();
 

@@ -12,7 +12,7 @@ class Personal extends Model
      * @var string
      */
     protected $table = 'personales';
-    //public $presenter = 'Tricks\Presenters\TagPresenter';
+    public $presenter = 'Tricks\Presenters\PersonalPresenter';
 
     /**
      * Query the tricks that belong to the tag.

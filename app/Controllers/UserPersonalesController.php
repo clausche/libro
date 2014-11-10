@@ -95,8 +95,8 @@ class UserPersonalesController extends BaseController
         $personalList      = $this->personales->listAll();
         
 
-        $this->view('tags.edit', [
-            'persoalList'            => $personalList,
+        $this->view('personales.edit', [
+            'personalList'            => $personalList,
             'trick'              => $trick,
             'personal'               => $personal
         ]);

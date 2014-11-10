@@ -48,10 +48,10 @@
 					    	<label for="name">Nombre Consulado</label>
 					    	{{Form::text('name', null, array('class'=>'form-control','placeholder'=>'Ingresa aquí el nombre del país' ));}}
 					    </div>
-					    <!-- <div class="form-group">
+					    <div class="form-group">
 					    	<label for="slug">Nombre indicativo del Consulado</label>
-					    	{{--Form::text('slug', null, array('class'=>'form-control','placeholder'=>'Nombre del Consulado' ));--}}
-					    </div> -->
+					    	{{Form::text('slug', null, array('class'=>'form-control','placeholder'=>'Nombre del Consulado' ));}}
+					    </div>
 					    
 					    <div class="form-group">
 					    	<label for="spanish_name">Nombre del Consulado en Español</label>

@@ -18,7 +18,7 @@ class TagEditForm extends AbstractForm
      */
     protected $rules = [
         'name'         => 'required|min:4|unique:tags,name',
-        'slug'         => 'required|min:4',
+        //'slug'         => 'required|min:4',
         'spanish_name' => 'required',
         'iso2'         => 'required'
         //'ciudades'      => 'required'
@@ -53,7 +53,9 @@ class TagEditForm extends AbstractForm
     public function getInputData()
     {
         return array_only($this->inputData, [
-            'name', 'slug', 'spanish_name', 'iso2'//, 'code'
+            'name',
+            // 'slug',
+             'spanish_name', 'iso2'//, 'code'
             //'ciudades'
 
             ]);

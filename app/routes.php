@@ -185,7 +185,7 @@ Route::group([ 'namespace' => 'Controllers' ], function () {
     Route::get('user/tricks/{trick_slug}/delete', [ 'as' => 'tricks.delete', 'uses' => 'UserTricksController@getDelete' ]);
 
     # Personal delete route
-    Route::get('user/personales/{persoanl_slug}/delete', [ 'as' => 'personales.delete', 'uses' => 'UserPersonalesController@getDelete' ]);
+    Route::get('user/personales/{personal_slug}/delete', [ 'as' => 'personales.delete', 'uses' => 'UserPersonalesController@getDelete' ]);
 
     # Feed routes
     /*Route::get('feed', [ 'as' => 'feed.atom', 'uses' => 'FeedsController@getAtom' ]);

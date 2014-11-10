@@ -25,7 +25,7 @@
 						</div>
 					@endif
 					<h1 class="page-title">
-						{{ trans('tricks.update_tag') }} {{ $porid->id }}
+						{{ trans('tricks.update_tag') }} 
 					</h1>
 					@if(Session::get('errors'))
 					    <div class="alert alert-danger alert-dismissable">
@@ -48,25 +48,16 @@
 					    
 					        
 					        <div class="form-group">
-					    	<label for="name">Nombre País</label>
-					    	{{Form::text('name', $tag->name, array('class'=>'form-control','placeholder'=>trans('tags.title_placeholder')));}}
+					    	<label for="name">Nombre Personal</label>
+					    	{{Form::text('name', $personal->name, array('class'=>'form-control','placeholder'=>trans('tags.title_placeholder')));}}
 					    	</div>
-					    	<!-- <div class="form-group">
-					    	<label for="slug">Nombre Slug del País</label>
-					    	{{--Form::text('slug', $tag->slug, array('class'=>'form-control','placeholder'=>'Nombre del país unido por un guion -' ));--}}
-					    	</div> -->
-					    
 					    	<div class="form-group">
-					    	<label for="spanish_name">Nombre del País en Español</label>
-					    	{{Form::text('spanish_name', $tag->spanish_name, array('class'=>'form-control','placeholder'=>'Nombre del país en Español' ));}}
-					    	</div>
-					   	 	<div class="form-group">
-					    	<label for="iso2">Nombre ISo2 del País</label>
-					    	{{Form::text('iso2', $tag->iso2, array('class'=>'form-control','placeholder'=>'Nombre ISO2 del país' ));}}
+					    	<label for="slug">Titulo diplomático</label>
+					    	{{Form::text('titulo', $personal->titulo, array('class'=>'form-control','placeholder'=>'Titulo diplomático' ));}}
 					    	</div>
 					    	<div class="text-right">
 					          <button type="submit"  id="save-section" class="btn btn-primary ladda-button" data-style="expand-right">
-					            {{ trans('tricks.update_tag') }}
+					            Actualizar
 					          </button>
 					        </div>
 					    </div>

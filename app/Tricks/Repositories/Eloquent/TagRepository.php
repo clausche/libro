@@ -192,7 +192,7 @@ class TagRepository extends AbstractRepository implements TagRepositoryInterface
     {
         //$tag->user_id = $data['user_id'];
         $tag->name       = e($data['name']);
-        $tag->slug        = Str::slug($data['slug'], '-');
+        $tag->slug        = Str::slug($data['name'], '-');
         $tag->spanish_name = e($data['spanish_name']);
         $tag->iso2 = e($data['iso2']);
         //$tag->code        = $data['code'];

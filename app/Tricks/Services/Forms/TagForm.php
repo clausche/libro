@@ -10,8 +10,8 @@ class TagForm extends AbstractForm
      * @var array
      */
     protected $rules = [
-        'name'         => 'required|unique:tags,name',
-        'slug'   => 'required|unique:tags,slug',
+        'name'         => 'required|unique:tags,name'
+        //'slug'   => 'required|unique:tags,slug',
         //'spanish_name' => 'required'
         //'categories'    => 'required',
         //'ciudades'      => 'required'
@@ -26,7 +26,9 @@ class TagForm extends AbstractForm
     public function getInputData()
     {
         return array_only($this->inputData, [
-            'name', 'slug', 'spanish_name', 'iso2'//, 'code'
+            'name', 
+            //'slug', 
+            'spanish_name', 'iso2'//, 'code'
             
         ]);
     }

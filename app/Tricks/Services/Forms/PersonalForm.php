@@ -11,7 +11,7 @@ class PersonalForm extends AbstractForm
      */
     protected $rules = [
         'name'         => 'required|unique:personales,name',
-        'slug'   => 'required|unique:personales,slug',
+        'titulo'   => 'required|min:4'
         //'spanish_name' => 'required'
         //'categories'    => 'required',
         //'ciudades'      => 'required'
@@ -26,7 +26,7 @@ class PersonalForm extends AbstractForm
     public function getInputData()
     {
         return array_only($this->inputData, [
-            'name', 'slug'//, 'code'
+            'name', 'titulo'//, 'code'
             
         ]);
     }

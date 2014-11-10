@@ -209,14 +209,14 @@ class BrowseController extends BaseController
      */
     public function getBrowsePersonal($personal)
     {
-        list($personal, $tricks) = $this->tricks->findByPersoanl($personal);
+        list($personal, $tricks) = $this->tricks->findByPersonal($personal);
         
 
         $type      = \Lang::get('browse.tag', array('tag' => $tag->name));
         $pageTitle = \Lang::get('browse.browsing_tag', array('tag' => $tag->name));
 
         //$this->view('browse.index', compact('tricks', 'type', 'pageTitle'));
-        $this->view('tags.single', compact('tricks', 'type', 'pageTitle','personal'));
+        $this->view('personales.single', compact('tricks', 'type', 'pageTitle','personal'));
     }
 
     /**
