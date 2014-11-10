@@ -51,5 +51,9 @@ class RepositoryServiceProvider extends ServiceProvider
             'Tricks\Repositories\PaisRepositoryInterface',
             'Tricks\Repositories\Eloquent\PaisRepository'
         );
+        $this->app->bind(
+            'Tricks\Repositories\PersonalRepositoryInterface',
+            'Tricks\Repositories\Eloquent\PersonalRepository'
+        );
     }
 }

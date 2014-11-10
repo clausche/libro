@@ -25,7 +25,7 @@ class Trick extends Model
 	 *
 	 * @var array
 	 */
-	protected $with = [ 'tags', 'ciudades', 'categories', 'user', 'paises' ];
+	protected $with = [ 'tags', 'ciudades', 'categories', 'user', 'paises', 'personales' ];
 
 	/**
 	 * Query the tricks' votes.
@@ -55,6 +55,16 @@ class Trick extends Model
 	public function tags()
 	{
 		return $this->belongsToMany('Tricks\Tag');
+	}
+
+	/**
+     * Query the tags under which the trick was posted.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+	public function personales()
+	{
+		return $this->belongsToMany('Tricks\Personal');
 	}
 
 	/**

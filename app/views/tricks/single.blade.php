@@ -62,8 +62,6 @@
                              </h1>   {{ $trick->emb_tlf }}
                             </div>
                     </div>
-                </div>
-                <div class="content-box">
                     <div class="trick-user">
                             <div class="trick-user-data">
                             <h1 class="page-title">
@@ -72,6 +70,7 @@
                             </div>
                     </div>
                 </div>
+                
                 <div class="content-box">
                     <div class="trick-user">
                             <div class="trick-user-data">
@@ -80,6 +79,19 @@
                              </h1>   {{ $trick->emb_email }}
                             </div>
                     </div>
+                    @if ($trick->emb_web == '')
+                        {{-- expr --}}
+                    
+                    
+                    @else
+                    <div class="trick-user">
+                            <div class="trick-user-data">
+                            <h1 class="page-title">
+                                Página Web 
+                             </h1>   {{ $trick->emb_web }}
+                            </div>
+                    </div>
+                    @endif
                 </div>
                 <div class="content-box">
                     <div class="trick-user">
@@ -90,15 +102,7 @@
                             </div>
                     </div>
                 </div>
-                <div class="content-box">
-                    <div class="trick-user">
-                            <div class="trick-user-data">
-                            <h1 class="page-title">
-                                Página Web 
-                             </h1>   {{ $trick->emb_web }}
-                            </div>
-                    </div>
-                </div>
+                
             </div>
                 <div class="col-lg-3 col-md-4">
                     <div class="content-box">

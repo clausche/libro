@@ -3,11 +3,11 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCountriesTable extends Migration {
+class CreatePersonalTable extends Migration {
 
     public function up()
     {
-        Schema::create('countries', function($table)
+        Schema::create('personales', function($table)
         {
             $table->engine = 'InnoDB';
 
@@ -26,11 +26,11 @@ class CreateCountriesTable extends Migration {
 
     public function down()
     {
-        Schema::table('countries', function($table)
+        Schema::table('personales', function($table)
         {
-            $table->dropForeign('countries_user_id_foreign');
+            $table->dropForeign('personales_user_id_foreign');
         });
-        Schema::drop('countries');
+        Schema::drop('personales');
     }
 
 }

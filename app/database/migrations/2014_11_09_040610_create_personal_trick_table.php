@@ -3,21 +3,21 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCountryTrickTable extends Migration {
+class CreatePersonalTrickTable extends Migration {
 
-    public function up()
+	public function up()
     {
-        Schema::create('country_trick', function($table)
+        Schema::create('personal_trick', function($table)
         {
             $table->engine = 'InnoDB';
 
             $table->increments('id')->unsigned();
-            $table->integer('country_id')->unsigned();
+            $table->integer('personal_id')->unsigned();
             $table->integer('trick_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('country_id')
-                  ->references('id')->on('countries')
+            $table->foreign('personal_id')
+                  ->references('id')->on('personales')
                   ->onUpdate('cascade')
                   ->onDelete('cascade');
 
@@ -30,13 +30,13 @@ class CreateCountryTrickTable extends Migration {
 
     public function down()
     {
-        Schema::table('country_trick', function($table)
+        Schema::table('personal_trick', function($table)
         {
-            $table->dropForeign('country_trick_country_id_foreign');
-            $table->dropForeign('country_trick_trick_id_foreign');
+            $table->dropForeign('personal_trick_personal_id_foreign');
+            $table->dropForeign('personal_trick_trick_id_foreign');
         });
 
-        Schema::drop('country_trick');
+        Schema::drop('personal_trick');
     }
 
 }

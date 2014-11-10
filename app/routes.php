@@ -17,12 +17,17 @@ Route::pattern('tag_slug', '[a-z0-9\-]+');
 Route::pattern('ciudad_slug', '[a-z0-9\-]+');
 Route::pattern('trick_slug', '[a-z0-9\-]+');
 Route::pattern('pais_slug', '[a-z0-9\-]+');
+Route::pattern('personal_slug', '[a-z0-9\-]+');
 
 # Admin routes
 Route::group([ 'prefix' => 'admin', 'namespace' => 'Controllers\Admin' ], function () {
     Route::controller('tags', 'TagsController', [
         'getIndex' => 'admin.tags.index',
         'getView'  => 'admin.tags.view'
+    ]);
+    Route::controller('personales', 'PersonalesController', [
+        'getIndex' => 'admin.personales.index',
+        'getView'  => 'admin.personales.view'
     ]);
 
     Route::controller('countries', 'CountriesController', [
@@ -82,6 +87,9 @@ Route::group([ 'namespace' => 'Controllers' ], function () {
     //Route::get('tags/{tag_slug}', [ 'as' => 'tricks.browse.tag', 'uses' => 'BrowseController@getBrowseTag' ]);
     Route::get('tags/{tag_slug}', [ 'as' => 'tricks.browse.tag', 'uses' => 'BrowseController@getBrowseTag' ]);
 
+    Route::get('personales', [ 'as' => 'browse.personales', 'uses' => 'BrowseController@getPersonalIndex' ]);
+    Route::get('personales/{personal_slug}', [ 'as' => 'tricks.browse.personal', 'uses' => 'BrowseController@getBrowsePersonal' ]);
+
     Route::get('ciudades', [ 'as' => 'browse.ciudades', 'uses' => 'BrowseController@getCiudadIndex' ]);
     //Route::get('ciudades/{ciudad_slug}', [ 'as' => 'tricks.browse.ciudad', 'uses' => 'BrowseController@getBrowseCiudad' ]);
     //Route::get('ciudades/{ciudad_slug}', [ 'as' => 'tricks.browse.ciudad', 'uses' => 'CiudadesController@getShow' ]);
@@ -132,7 +140,13 @@ Route::group([ 'namespace' => 'Controllers' ], function () {
     #######################################-->
 
     #######################################-->
-    # tags creation route
+    # personales creation route
+    Route::get('user/personales/new', [ 'as' => 'personales.new', 'uses' => 'UserPersonalesController@getNew' ]);
+    Route::post('user/personales/new', 'UserPersonalesController@postNew');
+    #######################################-->
+
+    #######################################-->
+    # paises creation route
     Route::get('user/paises/new', [ 'as' => 'paises.new', 'uses' => 'UserPaisesController@getNew' ]);
     Route::post('user/paises/new', 'UserPaisesController@postNew');
     #######################################-->
@@ -152,6 +166,11 @@ Route::group([ 'namespace' => 'Controllers' ], function () {
     Route::post('user/tags/{tag_slug}', 'UserTagsController@postEdit');
     ################################################->
 
+    #Personal editar route ################->
+    Route::get('user/personales/{personal_slug}', [ 'as' => 'personales.edit', 'uses' => 'UserPersonalesController@getEdit' ]);
+    Route::post('user/personales/{personal_slug}', 'UserPersonalesController@postEdit');
+    ################################################->
+
     #Pais editing route ################->
     Route::get('user/paises/{pais_slug}', [ 'as' => 'paises.edit', 'uses' => 'UserPaisesController@getEdit' ]);
     Route::post('user/paises/{pais_slug}', 'UserPaisesController@postEdit');
@@ -164,6 +183,9 @@ Route::group([ 'namespace' => 'Controllers' ], function () {
 
     # Trick delete route
     Route::get('user/tricks/{trick_slug}/delete', [ 'as' => 'tricks.delete', 'uses' => 'UserTricksController@getDelete' ]);
+
+    # Personal delete route
+    Route::get('user/personales/{persoanl_slug}/delete', [ 'as' => 'personales.delete', 'uses' => 'UserPersonalesController@getDelete' ]);
 
     # Feed routes
     /*Route::get('feed', [ 'as' => 'feed.atom', 'uses' => 'FeedsController@getAtom' ]);

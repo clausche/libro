@@ -8,6 +8,7 @@ use Tricks\Repositories\CiudadRepositoryInterface;
 use Tricks\Repositories\TrickRepositoryInterface;
 use Tricks\Repositories\CategoryRepositoryInterface;
 use Tricks\Repositories\PaisRepositoryInterface;
+use Tricks\Repositories\PersonalRepositoryInterface;
 
 class BrowseController extends BaseController
 {
@@ -47,6 +48,13 @@ class BrowseController extends BaseController
     protected $paises;
 
     /**
+     * personales repository.
+     *
+     * @var \Tricks\Repositories\CiudadRepositoryInterface
+     */
+    protected $personales;
+
+    /**
      * Trick repository.
      *
      * @var \Tricks\Repositories\TrickRepositoryInterface
@@ -69,7 +77,8 @@ class BrowseController extends BaseController
         TagRepositoryInterface $tags,
         CiudadRepositoryInterface $ciudades,
         TrickRepositoryInterface $tricks,
-        PaisRepositoryInterface  $paises
+        PaisRepositoryInterface  $paises,
+        PersonalRepositoryInterface $personales
     ) {
         parent::__construct();
 
@@ -79,6 +88,7 @@ class BrowseController extends BaseController
         $this->ciudades   = $ciudades;
         $this->tricks     = $tricks;
         $this->paises     = $paises;
+        $this->personales = $personales;
     }
 
     /**
@@ -134,6 +144,19 @@ class BrowseController extends BaseController
         $this->view('browse.pags', compact('tags'));
     }
 
+    /**
+     * Show the tags index.
+     *
+     * @return \Response
+     */
+    public function getPersonalIndex()
+    {
+        $personales = $this->personales->findAllWithTrickCount();
+        //$page = $this->tags->BuscaTodosPaginado();
+
+        $this->view('browse.personales', compact('personales'));
+    }
+
    
 
     /**
@@ -176,6 +199,24 @@ class BrowseController extends BaseController
 
         //$this->view('browse.index', compact('tricks', 'type', 'pageTitle'));
         $this->view('tags.single', compact('tricks', 'type', 'pageTitle','tag', 'ciudad'));
+    }
+
+    /**
+     * Show the browse by tag page.
+     *
+     * @param  string  $tag
+     * @return \Response
+     */
+    public function getBrowsePersonal($personal)
+    {
+        list($personal, $tricks) = $this->tricks->findByPersoanl($personal);
+        
+
+        $type      = \Lang::get('browse.tag', array('tag' => $tag->name));
+        $pageTitle = \Lang::get('browse.browsing_tag', array('tag' => $tag->name));
+
+        //$this->view('browse.index', compact('tricks', 'type', 'pageTitle'));
+        $this->view('tags.single', compact('tricks', 'type', 'pageTitle','personal'));
     }
 
     /**
