@@ -45,49 +45,23 @@
 					{{ Form::open(array('class'=>'form-vertical','id'=>'save-trick-form','role'=>'form'))}}
 					
 						<div class="form-group">
-					    	<label for="name">Nombre Consulado</label>
-					    	{{Form::text('name', null, array('class'=>'form-control','placeholder'=>'Ingresa aquí el nombre del país' ));}}
+					    	<label for="name">Nombre Personal</label>
+					    	{{Form::text('name', null, array('class'=>'form-control','placeholder'=>'Ingresa aquí el nombre del funcionario diplomático' ));}}
 					    </div>
 					    <div class="form-group">
-					    	<label for="slug">Nombre indicativo del Consulado</label>
-					    	{{Form::text('slug', null, array('class'=>'form-control','placeholder'=>'Nombre del Consulado' ));}}
+					    	<label for="titulo">Titulo</label>
+					    	{{Form::text('titulo', null, array('class'=>'form-control','placeholder'=>'Indique el Titulo o Cargo del funcionario' ));}}
 					    </div>
 					    
 					    <div class="form-group">
-					    	<label for="spanish_name">Nombre del Consulado en Español</label>
-					    	{{Form::text('spanish_name', null, array('class'=>'form-control','placeholder'=>'Nombre del país en Español' ));}}
+					    	<label for="cedula">Cédula de Identidad</label>
+					    	{{Form::text('cedula', null, array('class'=>'form-control','placeholder'=>'Indique la Cédula' ));}}
 					    </div>
 					    <div class="form-group">
-					    	<label for="iso2">Nombre ISo2 del País</label>
-					    	{{Form::text('iso2', null, array('class'=>'form-control','placeholder'=>'Nombre ISO2 del país' ));}}
+					    	<label for="email">Email</label>
+					    	{{Form::text('email', null, array('class'=>'form-control','placeholder'=>'Correo electrónico' ));}}
 					    </div>
-						<!-- <div class="form-group">
-					    	<p>{{ Form::select('categories[]', $categoryList, null, array('multiple','id'=>'categories','placeholder'=>trans('tricks.categorize_trick_placeholder'),'class' => 'form-control')); }}</p>
-					    </div>
-					    <div class="form-group">
-					    	<p>{{ Form::select('tags[]', $tagList, null, array('multiple','id'=>'tags','placeholder'=>trans('tricks.tag_trick_placeholder'),'class' => 'form-control')); }}</p>
-					    </div>
-					    <div class="form-group">
-					    	<p>{{ Form::select('ciudades[]', $ciudadList, null, array('id'=>'ciudades','placeholder'=>trans('tricks.ciudad_trick_placeholder'),'class' => 'form-control')); }}</p>
-					    </div>
-					    <div class="form-group">
-					    	<label for="title">{{ trans('tricks.title') }}</label>
-					    	{{Form::text('title', null, array('class'=>'form-control','placeholder'=>trans('tricks.title_placeholder') ));}}
-					    </div>
-					    <div class="form-group">
-					    	<label for="description">{{ trans('tricks.description') }}</label>
-					    	{{Form::textarea('description',null, array('class'=>'form-control','placeholder'=>trans('tricks.trick_description_placeholder'),'rows'=>'3'));}}
-					    </div> -->
-					    <!-- <div class="form-group">
-					      <label>{{ trans('tricks.trick_code') }}</label>
-					      <div id="editor-content" class="content-editor"></div>
-					      {{Form::textarea('code', null, ['id'=>'code-editor','style'=>'display:none;']);}}
-					    </div> -->
-						
-						
-
-					    
-					    
+											    
 					    <div class="form-group">
 					        <div class="text-right">
 					          <button type="submit"  id="save-section" class="btn btn-primary ladda-button" data-style="expand-right">

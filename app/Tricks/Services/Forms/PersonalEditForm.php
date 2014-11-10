@@ -51,7 +51,7 @@ class PersonalEditForm extends AbstractForm
     public function getInputData()
     {
         return array_only($this->inputData, [
-            'name', 'titulo'
+            'name', 'titulo','cedula','email'
             //, 'code'
             //'ciudades'
 

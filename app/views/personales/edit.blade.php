@@ -55,6 +55,14 @@
 					    	<label for="slug">Titulo diplomático</label>
 					    	{{Form::text('titulo', $personal->titulo, array('class'=>'form-control','placeholder'=>'Titulo diplomático' ));}}
 					    	</div>
+					    	<div class="form-group">
+					    	<label for="cedula">Cédula de Identidad</label>
+					    	{{Form::text('cedula', $personal->cedula, array('class'=>'form-control','placeholder'=>'Indique la Cédula' ));}}
+					    	</div>
+					    	<div class="form-group">
+					    	<label for="email">Email</label>
+					    	{{Form::text('email', $personal->email, array('class'=>'form-control','placeholder'=>'Correo electrónico' ));}}
+					    	</div>
 					    	<div class="text-right">
 					          <button type="submit"  id="save-section" class="btn btn-primary ladda-button" data-style="expand-right">
 					            Actualizar
