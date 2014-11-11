@@ -8,6 +8,7 @@ use Tricks\Ciudad;
 use Tricks\Pais;
 use Tricks\User;
 use Tricks\Trick;
+use Tricks\Personal;
 use Tricks\Category;
 use Illuminate\Support\Str;
 use Tricks\Services\Forms\TrickForm;
@@ -41,6 +42,7 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
      */
     protected $ciudad;
     protected $pais;
+    protected $personal;
 
     /**
      * Create a new DbTrickRepository instance.
@@ -51,13 +53,20 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
      * @param  \Tricks\Ciudad  $ciudad
      * @return void
      */
-    public function __construct(Trick $trick, Category $category, Tag $tag, Ciudad $ciudad, Pais $pais )
+    public function __construct(Trick $trick, 
+        Category $category, 
+        Tag $tag, 
+        Ciudad $ciudad, 
+        Pais $pais, 
+        Personal $personal 
+        )
     {
         $this->model    = $trick;
         $this->category = $category;
         $this->tag      = $tag;
         $this->ciudad   = $ciudad;
         $this->pais   = $pais;
+        $this->personal = $personal;
     } 
 
     /**d
@@ -100,7 +109,7 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
     }
 
     /**
-     * Find a trick by the given slug.
+     * Find a paises by the given slug.
      *
      * @param  string $slug
      * @return \Tricks\Trick
@@ -108,6 +117,17 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
     public function findByTitle($slug)
     {
         return $this->pais->whereSlug($slug)->first();
+    }
+
+    /**
+     * Find a paises by the given slug.
+     *
+     * @param  string $slug
+     * @return \Tricks\Trick
+     */
+    public function findByPersonalSlug($slug)
+    {
+        return $this->personal->whereSlug($slug)->first();
     }
 
     public function findAll()
