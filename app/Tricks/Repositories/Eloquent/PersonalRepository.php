@@ -56,9 +56,11 @@ class PersonalRepository extends AbstractRepository implements PersonalRepositor
         $personales = $this->model
                      ->orderBy($orderColumn, $orderDir)
                      ->get();
+        
 
         return $personales;
     }
+
 
     /**
      * Find a tag by id.

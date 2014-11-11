@@ -1,11 +1,11 @@
-@section('title', trans('admin.viewing_tags'))
+@section('title', 'Personal')
 
 @section('content')
 <div class="container">
 	<div class="row">
 		<div class="col-lg-12"> 
 			<div class="page-header">
-			  <h1>{{ trans('admin.all_tags') }} <span class="pull-right"><a data-toggle="modal" href="#add_tag" class="btn btn-primary btn-lg">{{ trans('admin.add_new_tag') }}</a></span></h1>
+			  <h1>Todo el Personal <span class="pull-right"><a data-toggle="modal" href="#add_tag" class="btn btn-primary btn-lg">Nuevo Personal</a></span></h1>
 			</div>
 		</div>
 	</div>
@@ -14,18 +14,18 @@
 			<table class="table">
 			   <thead>
 			     <tr>
-			       <th>{{ trans('admin.tag') }}</th>
+			       <th>Nombres</th>
 			       <th class="col-lg-3 text-right">{{ trans('admin.actions') }}</th>
 			     </tr>
 			   </thead>
 			   <tbody>
-			  	@foreach($tags as $tag)
-			    <tr rel="{{ $tag->id }}">
-			        <td><a href="{{url('admin/tags/view/'.$tag->id)}}">{{ $tag->name }}</a></td>
+			  	@foreach($personales as $personal)
+			    <tr rel="{{ $personal->id }}">
+			        <td><a href="{{url('admin/personales/view/'.$personal->id)}}">{{ $personal->name }}</a></td>
 			        <td>
 			        	<div class="btn-group pull-right">
-				        <a class="btn btn-primary btn-sm" href="{{url('admin/tags/view/'.$tag->id)}}">{{ trans('admin.edit') }}</a> 
-				        <a class="delete_toggler btn btn-danger btn-sm" rel="{{$tag->id}}">{{ trans('admin.delete') }}</a>
+				        <a class="btn btn-primary btn-sm" href="{{url('admin/personales/view/'.$personal->id)}}">{{ trans('admin.edit') }}</a> 
+				        <a class="delete_toggler btn btn-danger btn-sm" rel="{{$personal->id}}">Eliminar</a>
 			        	</div>
 			        </td>
 			     </tr>
@@ -42,7 +42,7 @@
      <div class="modal-content">
        <div class="modal-header">
          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-         <h4 class="modal-title">{{ trans('admin.adding_new_tag') }}</h4>
+         <h4 class="modal-title">Nuevo Personal</h4>
        </div>
        <div class="modal-body">
        		@if($errors->all())
@@ -53,27 +53,28 @@
        		@endif
 			{{ Form::open(array('class'=>'form-horizontal'))}}
         	<div class="form-group">
-        	    <label for="title" class="col-lg-2 control-label">{{ trans('admin.name') }}</label>
+        	    <label for="titulo" class="col-lg-2 control-label">Titulo</label>
         	    <div class="col-lg-10">
-        	    	{{ Form::text('name',null,array('class'=>'form-control'))}}
+        	    	{{ Form::text('titulo',null,array('class'=>'form-control'))}}
         	    </div>
         	</div>
+        	
         	<div class="form-group">
-        	    <label for="title" class="col-lg-2 control-label">Nombre indice</label>
-        	    <div class="col-lg-10">
-        	    	{{ Form::text('slug',null,array('class'=>'form-control'))}}
-        	    </div>
-        	</div>
-        	<div class="form-group">
-		    	<label for="spanish_name" class="col-lg-2 control-label" >Nombre del Consulado en Español</label>
+		    	<label for="name" class="col-lg-2 control-label" >Nombre completo</label>
 		    	<div class="col-lg-10">
-		    	{{Form::text('spanish_name', null, array('class'=>'form-control','placeholder'=>'Nombre del país en Español' ));}}
+		    	{{Form::text('name', null, array('class'=>'form-control','placeholder'=>'Nombre ' ));}}
 		    	</div>
 		    </div>
 		    <div class="form-group">
-		    	<label for="iso2" class="col-lg-2 control-label" >Nombre ISo2 del País</label>
+		    	<label for="cedula" class="col-lg-2 control-label" >Cédula</label>
 		    	<div class="col-lg-10">
-		    	{{Form::text('iso2', null, array('class'=>'form-control','placeholder'=>'Nombre ISO2 del país' ));}}
+		    	{{Form::text('cedula', null, array('class'=>'form-control','placeholder'=>'Cédula' ));}}
+		    	</div>
+		    </div>
+		    <div class="form-group">
+		    	<label for="email" class="col-lg-2 control-label" >Email</label>
+		    	<div class="col-lg-10">
+		    	{{Form::text('email', null, array('class'=>'form-control','placeholder'=>'Email' ));}}
 		    	</div>
 		    </div>
         	<div class="form-group">

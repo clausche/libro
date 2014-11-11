@@ -38,7 +38,7 @@
                                 {{ $trick->title }}
                             </h1>
                             <div>
-                                Submitted by <b><a href="{{ route('user.profile', $trick->user->username) }}">{{ $trick->user->username }}</a></b> - {{ $trick->timeago }}
+                                Submitted by <b><a href="{{ route('user.profile', $trick->user->username) }}">{{ $trick->user->username }}</a></b> - {{ $trick->timeago }} -- {{ $personales }}
                             </div>
                         </div>
                     </div>
