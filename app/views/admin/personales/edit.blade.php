@@ -21,6 +21,7 @@
         	    	{{ Form::text('name',$personal->name,array('class'=>'form-control'))}}
         	    </div>
         	</div>
+            
         	<div class="form-group">
         		<div class="col-lg-10 col-lg-offset-2">
         		{{ Form::submit(trans('admin.save_tag'), array('class'=>'btn btn-primary btn-block')); }}

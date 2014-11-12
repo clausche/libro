@@ -53,7 +53,7 @@
        		@endif
 			{{ Form::open(array('class'=>'form-horizontal'))}}
         	<div class="form-group">
-        	    <label for="titulo" class="col-lg-8 control-label">Titulo</label>
+        	    <label for="titulo" class="col-lg-2 control-label">Titulo</label>
         	    <div class="col-lg-10">
         	    	{{ Form::text('titulo',null,array('class'=>'form-control'))}}
         	    </div>
