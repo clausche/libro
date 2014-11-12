@@ -47,6 +47,12 @@ return array(
 			'route' => 'tags.new',
 			'active' => array('user/tags/new'),
 			// 'logged_in' => true
+		),
+		array(
+			'label' => 'Nuevo Personal',
+			'route' => 'personales.new',
+			'active' => array('user/personales/new'),
+			// 'logged_in' => true
 		)
 
 	),

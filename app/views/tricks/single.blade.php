@@ -125,25 +125,35 @@
                                 <span class="fa fa-eye"></span> Presidente actual : {{ $paises->headofstate }}
                             </li>
                         </ul>
-                        @if(count($trick->allCategories))
-                            <b>Categorias</b>
+                        
+                            <b>Embajada</b>
                             <ul class="nav nav-list push-down">
-                                @foreach($trick->allCategories as $category)
-                                    <li>
-                                        <a href="{{ route('tricks.browse.category', $category->slug) }}">
-                                            {{ $category->name }}
-                                        </a>
-                                    </li>
-                                @endforeach
+                                
+                                    <li class="list-group-item" >
+                                <span class="fa fa-eye"></span> {{ $trick->title }}
+                            </li>
+                                
                             </ul>
-                        @endif
+                       
                         @if(count($trick->tags))
-                            <b>País-(Tags)</b>
+                            <b>Consulados</b>
                             <ul class="nav nav-list push-down">
                                 @foreach($trick->tags as $tag)
                                     <li>
                                         <a href="{{ route('tricks.browse.tag', $tag->slug) }}">
                                             {{ $tag->name }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        @endif
+                        @if(count($trick->personales))
+                            <b>Personal</b>
+                            <ul class="nav nav-list push-down">
+                                @foreach($trick->personales as $personal)
+                                    <li>
+                                        <a href="{{ route('tricks.browse.personal', $personal->slug) }}">
+                                            {{ ucwords(strtolower($personal->name)) }}
                                         </a>
                                     </li>
                                 @endforeach

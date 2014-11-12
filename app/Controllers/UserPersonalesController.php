@@ -93,7 +93,6 @@ class UserPersonalesController extends BaseController
         $trick        = $this->trick->findAll();
         $personal        = $this->personales->findBySlug($slug);
         $personalList      = $this->personales->listAll();
-        
 
         $this->view('personales.edit', [
             'personalList'            => $personalList,

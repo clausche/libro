@@ -45,7 +45,7 @@ class TricksController extends BaseController
 
         $trick = $this->tricks->findBySlug($slug);
         $paises = $this->tricks->findByTitle($slug);
-        $personales = $this->tricks->findByPersonalSlug($slug);
+        $personales = $this->tricks->findByPersonal($slug);
 
         if (is_null($trick)) {
             return $this->redirectRoute('home');

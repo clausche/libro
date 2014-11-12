@@ -28,86 +28,39 @@
                     @if(Auth::check() && (Auth::user()->id == $trick->user_id))
                         <div class="text-right">
                             <a data-toggle="modal" href="#deleteModal">Delete</a> |
-                            <a href="{{$tag->editLink}}">Editar</a>
+                            <a href="{{$personal->editLink}}">Editar</a>
                             @include('tricks.delete',['link'=>$trick->deleteLink])
                         </div>
                     @endif
                     <div class="trick-user">
-                        <!-- <div class="trick-user-image">
-                            <img src="{{ $trick->user->photocss }}" class="user-avatar">
-                        </div> -->
+                       
                         <div class="trick-user-data">
-                            <h1 class="page-title">{{ $tag->name }} Consulado de Venezuela en 
+                            <h1 class="page-title">{{ $personal->name }} Consulado de Venezuela en 
                                 {{ $trick->title }}
                             </h1>
                             <div>
-                                <!-- Submitted by <b><a href="{{-- route('user.profile', $trick->user->username) --}}">{{ $trick->user->username }}</a></b>  -->
+                              
                             </div>
                         </div>
                     </div>
                     <p>{{{ $trick->description }}}</p>
-                    <!-- <pre><code class="php">{{{ $trick->code }}}</code></pre> -->
+                  
                 </div>
                 <div class="content-box">
                             <div>
-                                Consulado de {{ $tag->name }}</a></b> 
+                                Consulado de {{ $personal->name }}</a></b> 
                             </div>
                 </div>
                 <div class="content-box">
-                @foreach ($trick->ciudades as $ciudad)
-                    slug: {{ $ciudad->slug}} -- district: {{ $ciudad->district }} 
-                @endforeach
+                
                             <div>
-                                slug: {{ $tag->slug }}</a></b> {{-- $trick->timeago --}} 
+                                slug: {{ $personal->slug }}</a></b> 
                             </div>
-                </div>
-            </div>
-                <div class="col-lg-3 col-md-4">
-                    <div class="content-box">
-                        <b>Datos del País</b>
-                        <ul class="list-group trick-stats">
-                        
-                            
-                            <li class="list-group-item">
-                                <span class="fa fa-eye"></span> {{ $trick->view_cache }} views
-                            </li>
-                            <li class="list-group-item">
-                                <span class="fa fa-eye"></span> Población : {{ number_format($ciudad->population) }}
-                            </li>
-                            <li class="list-group-item" >
-                                <span class="fa fa-eye"></span> Distrito : {{ $ciudad->district }}
-                                
-                            </li>
-                        </ul>
-                        @if(count($trick->allCategories))
-                            <b>Categorias</b>
-                            <ul class="nav nav-list push-down">
-                                @foreach($trick->allCategories as $category)
-                                    <li>
-                                        <a href="{{ route('tricks.show', $trick->slug) }}">
-                                            {{ $category->name }}
-                                        </a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        @endif
-                        @if(count($trick->tags))
-                            <b>País-(Tags)</b>
-                            <ul class="nav nav-list push-down">
-                                @foreach($trick->tags as $tag)
-                                    <li>
-                                        <a href="{{ route('tricks.browse.tag', $tag->slug) }}">
-                                            {{ $tag->name }}
-                                        </a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        @endif
-                       
-                    </div>
                 </div>
             </div>
                 
-
+            </div>
+         </div>       
+    
     </div>
 @stop

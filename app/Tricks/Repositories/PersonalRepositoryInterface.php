@@ -33,6 +33,7 @@ interface PersonalRepositoryInterface
     public function findById($id);
     
     public function findBySlug($slug);
+    public function findByPersonal($slug);
 
     /**
      * Find all tags with the associated number of tricks.

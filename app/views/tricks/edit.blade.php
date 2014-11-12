@@ -93,6 +93,10 @@
 					    	{{Form::text('emb_web',$trick->emb_web, array('class'=>'form-control','placeholder'=>'Escriba aquí la web de la embajada','rows'=>'3'));}}
 					    </div>
 					    <div class="form-group">
+					    	<label for="personales">listado del personal en cargo</label>
+					    	{{ Form::select('personales[]', $personalList, $selectedPersonales, array('multiple','id'=>'personales','placeholder'=>'Listado del personal','class' => 'form-control')); }}
+					    </div>
+					    <div class="form-group">
 					        <div class="text-right">
 					          <button type="submit"  id="save-section" class="btn btn-primary ladda-button" data-style="expand-right">
 					            {{ trans('tricks.update_trick') }}

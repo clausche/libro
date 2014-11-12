@@ -162,6 +162,17 @@ class PersonalRepository extends AbstractRepository implements PersonalRepositor
     }
 
     /**
+     * Find a tags by the given slug.
+     *
+     * @param  string $slug
+     * @return \Tricks\Tag
+     */
+    public function findByPersonal($slug)
+    {
+        return $this->model->whereSlug($slug)->first();
+    }
+
+    /**
      * Create a new tag in the database.
      *
      * @param  array  $data

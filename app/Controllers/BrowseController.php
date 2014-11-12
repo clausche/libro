@@ -69,6 +69,7 @@ class BrowseController extends BaseController
      * @param  \Tricks\Repositories\CiudadesRepositoryInterface  $ciudades     
      * @param  \Tricks\Repositories\TrickRepositoryInterface  $tricks
      * @param  \Tricks\Repositories\PaisRepositoryInterface  $paises
+      * @param  \Tricks\Repositories\PersonalRepositoryInterface  $personales
      * @return void
      */
     public function __construct(
@@ -201,22 +202,24 @@ class BrowseController extends BaseController
         $this->view('tags.single', compact('tricks', 'type', 'pageTitle','tag', 'ciudad'));
     }
 
-    /**
-     * Show the browse by tag page.
+   /**
+     * Show the browse by personal page.
      *
-     * @param  string  $tag
+     * @param  string  $personal
      * @return \Response
      */
     public function getBrowsePersonal($personal)
     {
-        list($personal, $tricks) = $this->tricks->findByPersonal($personal);
+        $tricks =       $this->tricks->findAll();
+        $personal =     $this->personales->findBySlug($personal);
+
         
 
-        $type      = \Lang::get('browse.tag', array('tag' => $tag->name));
-        $pageTitle = \Lang::get('browse.browsing_tag', array('tag' => $tag->name));
-
-        //$this->view('browse.index', compact('tricks', 'type', 'pageTitle'));
+        //$this->view('browse.index', compact('tricks', 'type', 'pageTitle','ciudad'));
         $this->view('personales.single', compact('tricks', 'type', 'pageTitle','personal'));
+
+        
+
     }
 
     /**

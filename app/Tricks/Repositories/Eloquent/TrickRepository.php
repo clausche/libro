@@ -125,7 +125,7 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
      * @param  string $slug
      * @return \Tricks\Trick
      */
-    public function findByPersonalSlug($slug)
+    public function findByPersonal($slug)
     {
         return $this->personal->whereSlug($slug)->first();
     }
