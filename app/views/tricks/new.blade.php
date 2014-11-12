@@ -51,6 +51,10 @@
 					    	<label for="name">Consulados</label>
 					    	<p>{{ Form::select('tags[]', $tagList, null, array('multiple','id'=>'tags','placeholder'=>trans('tricks.tag_trick_placeholder'),'class' => 'form-control')); }}</p>
 					    </div>
+					    <div class="form-group">
+					    	<label for="name">Personal de Cargo</label>
+					    	<p>{{ Form::select('personales[]', $personalList, null, array('multiple','id'=>'personales','placeholder'=>'Personal de Cargo','class' => 'form-control')); }}</p>
+					    </div>
 						
 					    <div class="form-group">
 					    	<label for="name">Localización de la embajada</label>

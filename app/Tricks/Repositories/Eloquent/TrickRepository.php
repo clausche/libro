@@ -277,6 +277,17 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
     }
 
     /**
+     * Get a list of personal ids that are associated with the given trick.
+     *
+     * @param  \Tricks\Trick $trick
+     * @return array
+     */
+    public function listPersonalesIdsForTrick(Trick $trick)
+    {
+        return $trick->personales->lists('id');
+    }
+
+    /**
      * Get a list of ciudad ids that are associated with the given trick.
      *
      * @param  \Tricks\Trick $trick
@@ -323,6 +334,7 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
         $trick->save();
 
         $trick->tags()->sync($data['tags']);
+        $trick->personales()->sync($data['personales']);
         $trick->ciudades()->sync($data['ciudades']);
         $trick->categories()->sync($data['categories']);
 
@@ -354,6 +366,7 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
         $trick->save();
 
         $trick->tags()->sync($data['tags']);
+        $trick->personales()->sync($data['personales']);
         $trick->ciudades()->sync($data['ciudades']);
         $trick->categories()->sync($data['categories']);
 

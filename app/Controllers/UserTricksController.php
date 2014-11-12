@@ -4,6 +4,7 @@ namespace Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Tricks\Repositories\TagRepositoryInterface;
+use Tricks\Repositories\PersonalRepositoryInterface;
 use Tricks\Repositories\CiudadRepositoryInterface;
 use Tricks\Repositories\CountryRepositoryInterface;
 use Tricks\Repositories\TrickRepositoryInterface;
@@ -24,6 +25,13 @@ class UserTricksController extends BaseController
      * @var \Tricks\Repositories\TagRepositoryInterface
      */
     protected $tags;
+
+    /**
+     * Personal repository.
+     *
+     * @var \Tricks\Repositories\PersonalRepositoryInterface
+     */
+    protected $personales;
 
     /**
      * Country repository.
@@ -51,6 +59,7 @@ class UserTricksController extends BaseController
      *
      * @param  \Tricks\Repositories\TrickRepositoryInterface  $trick
      * @param  \Tricks\Repositories\TagRepositoryInterface  $tags
+     * @param  \Tricks\Repositories\PersonalRepositoryInterface  $personales
      * @param  \Tricks\Repositories\CiudadRepositoryInterface  $ciudades
      * @param  \Tricks\Repositories\CategoryRepositoryInterface  $categories
      * @return void
@@ -58,6 +67,7 @@ class UserTricksController extends BaseController
     public function __construct(
         TrickRepositoryInterface $trick,
         TagRepositoryInterface $tags,
+        PersonalRepositoryInterface  $personales,
         CiudadRepositoryInterface $ciudades,
         CountryRepositoryInterface $countries,
         CategoryRepositoryInterface $categories
@@ -71,6 +81,7 @@ class UserTricksController extends BaseController
 
         $this->trick      = $trick;
         $this->tags       = $tags;
+        $this->personales = $personales;
         $this->ciudades   = $ciudades;
         $this->countries   = $countries;
         $this->categories = $categories;
@@ -84,11 +95,12 @@ class UserTricksController extends BaseController
     public function getNew()
     {
         $tagList      = $this->tags->listAll();
+        $personalList = $this->personales->listAll();
         $ciudadList   = $this->ciudades->listAll();
         $categoryList = $this->categories->listAll();
-        $countryList = $this->countries->listAll();
+        $countryList  = $this->countries->listAll();
 
-        $this->view('tricks.new', compact('tagList', 'ciudadList', 'categoryList', 'countryList'));
+        $this->view('tricks.new', compact('tagList', 'personalList', 'ciudadList', 'categoryList', 'countryList'));
     }
 
     /**
@@ -122,19 +134,23 @@ class UserTricksController extends BaseController
     {
         $trick        = $this->trick->findBySlug($slug);
         $tagList      = $this->tags->listAll();
+        $personalList = $this->personales->listAll();
         $ciudadList   = $this->ciudades->listAll();
         $categoryList = $this->categories->listAll();
         $countryList = $this->countries->listAll();
 
         $selectedTags       = $this->trick->listTagsIdsForTrick($trick);
+        $selectedPersonales = $this->trick->listPersonalesIdsForTrick($trick);
         $selectedCiudades   = $this->trick->listCiudadesIdsForTrick($trick);
         $selectedCategories = $this->trick->listCategoriesIdsForTrick($trick);
 
         $this->view('tricks.edit', [
             'tagList'            => $tagList,
+            'personalList'       => $personalList,
             'ciudadList'         => $ciudadList,
-            'countryList'         => $countryList,    
+            'countryList'        => $countryList,    
             'selectedTags'       => $selectedTags,
+            'selectedPersonales' => $selectedPersonales,
             'selectedCiudades'   => $selectedCiudades,
             'categoryList'       => $categoryList,
             'selectedCategories' => $selectedCategories,
@@ -177,6 +193,7 @@ class UserTricksController extends BaseController
         $trick = $this->trick->findBySlug($slug);
 
         $trick->tags()->detach();
+        $trick->personales()->detach();
         $trick->ciudades()->detach();
         $trick->categories()->detach();
         $trick->delete();
