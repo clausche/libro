@@ -59,6 +59,7 @@ class TrickEditForm extends AbstractForm
             'categories',
             'ciudades',
             'personales',
+            'personales',
             'emb_direccion',
             'emb_tlf',
             'emb_fax',
