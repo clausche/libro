@@ -152,7 +152,7 @@ class BrowseController extends BaseController
      */
     public function getPersonalIndex()
     {
-        $personales = $this->personales->findAllWithTrickCount();
+        $personales = $this->personales->findAllWithPersonalCount();
         //$page = $this->tags->BuscaTodosPaginado();
 
         $this->view('browse.personales', compact('personales'));

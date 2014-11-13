@@ -35,11 +35,10 @@
                     <div class="trick-user">
                        
                         <div class="trick-user-data">
-                            <h1 class="page-title">{{ $personal->name }} Consulado de Venezuela en 
-                                {{ $trick->title }}
+                            <h1 class="page-title">{{ $personal->name }}
                             </h1>
                             <div>
-                              
+                             Se encuentra en {{ $personal->destino }} 
                             </div>
                         </div>
                     </div>

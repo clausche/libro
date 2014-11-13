@@ -8,7 +8,7 @@
 				<h1 class="page-title">Registros {{{ $type }}}s</h1>
 			</div>
 
-			<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+			<div class="col-lg-2 col-md-4 col-sm-4 col-xs-8">
 				@include('partials.search')
 			</div>
 		</div>

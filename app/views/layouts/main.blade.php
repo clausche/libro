@@ -43,9 +43,9 @@
         <script src="{{ asset('js/jquery.min.js') }} "></script>
         <script src="{{ asset('js/bootstrap.min.js') }} "></script>
         @yield('scripts')
-        <script type="text/javascript">
+        /*<script type="text/javascript">
             var disqus_shortname = '{{ Config::get("config.disqus_shortname") }}';
             (function(){var e=document.createElement("script");e.async=true;e.type="text/javascript";e.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("HEAD")[0]||document.getElementsByTagName("BODY")[0]).appendChild(e)})()
-        </script>
+        </script>*/
     </body>
 </html>
