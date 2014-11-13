@@ -94,7 +94,7 @@ class PersonalRepository extends AbstractRepository implements PersonalRepositor
      */
     public function listPersonalesIdsForTrick(Personal $trick)
     {
-        return $trick->tags->lists('id');
+        return $trick->personales->lists('id');
     }
 
     /**

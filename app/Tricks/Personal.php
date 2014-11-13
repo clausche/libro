@@ -21,6 +21,15 @@ class Personal extends Model
      */
 	public function tricks()
 	{
-		return $this->belongsToMany('Tricks\Trick');
+		return $this->hasOne('Tricks\Trick');
 	}
+    public function paises()
+    {
+        return $this->hasOne('Tricks\Pais');
+
+    }
+    public function tags()
+    {
+        return $this->hasOne('Tricks\Tag');
+    }
 }

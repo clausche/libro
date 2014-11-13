@@ -37,17 +37,16 @@
                         <div class="trick-user-data">
                             <h1 class="page-title">{{ $personal->name }}
                             </h1>
-                            <div>
-                             Se encuentra en {{ $personal->destino }} 
-                            </div>
+                            
                         </div>
                     </div>
-                    <p>{{{ $trick->description }}}</p>
+                    
                   
                 </div>
                 <div class="content-box">
-                            <div>
-                                Consulado de {{ $personal->name }}</a></b> 
+                            <div class="trick-user-data">
+                                <h1 class="page-title">{{ $personal->destino }}
+                            </h1> 
                             </div>
                 </div>
                 <div class="content-box">

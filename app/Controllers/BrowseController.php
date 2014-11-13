@@ -208,15 +208,26 @@ class BrowseController extends BaseController
      * @param  string  $personal
      * @return \Response
      */
-    public function getBrowsePersonal($personal)
+    public function getBrowsePersonal($slug)
     {
-        $tricks =       $this->tricks->findAll();
+
+        $tricks        = $this->tricks->findAll();
+        $personal        = $this->personales->findBySlug($slug);
+        $personalList      = $this->personales->listAll();
+
+        $this->view('personales.single', [
+            'personalList'            => $personalList,
+            'tricks'              => $tricks,
+            'personal'               => $personal
+        ]);
+
+        /*$tricks =       $this->tricks->findAll();
         $personal =     $this->personales->findBySlug($personal);
 
         
 
         //$this->view('browse.index', compact('tricks', 'type', 'pageTitle','ciudad'));
-        $this->view('personales.single', compact('tricks', 'type', 'pageTitle','personal'));
+        $this->view('personales.single', compact('tricks', 'type', 'pageTitle','personal'));*/
 
         
 

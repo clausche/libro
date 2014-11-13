@@ -56,6 +56,10 @@
 					    	{{Form::text('titulo', $personal->titulo, array('class'=>'form-control','placeholder'=>'Titulo diplomático' ));}}
 					    	</div>
 					    	<div class="form-group">
+					    	<label for="destino">Destino asignado</label>
+					    	{{Form::text('destino', $personal->destino, array('class'=>'form-control','placeholder'=>'Destino' ));}}
+					    	</div>
+					    	<div class="form-group">
 					    	<label for="cedula">Cédula de Identidad</label>
 					    	{{Form::text('cedula', $personal->cedula, array('class'=>'form-control','placeholder'=>'Indique la Cédula' ));}}
 					    	</div>
