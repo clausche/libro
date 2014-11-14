@@ -5,6 +5,12 @@
     $('#categories').selectize({
         maxItems: 5
     });
+    $('#personales').selectize({
+        maxItems: 5
+    });
+    $('#paises').selectize({
+        maxItems: 5
+    });
     var editor = ace.edit("editor-content");
     var codeEditor = $('#code-editor');
     editor.setTheme("ace/theme/github");
