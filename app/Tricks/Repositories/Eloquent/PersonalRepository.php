@@ -39,7 +39,7 @@ class PersonalRepository extends AbstractRepository implements PersonalRepositor
      */
     public function listAll()
     {
-        $personales = $this->model->lists('name', 'id');
+        $personales = $this->model->lists('name', 'id', 'destino');
 
         return $personales;
     }
